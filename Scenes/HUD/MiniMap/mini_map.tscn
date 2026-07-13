@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://byp3rc0gqa66o"]
+
+[node name="MiniMap" type="MarginContainer" unique_id=573718819]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=149766274]
+layout_mode = 2
+color = Color(1, 0, 0, 1)

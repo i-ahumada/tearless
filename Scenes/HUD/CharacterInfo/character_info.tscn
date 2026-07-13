@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://rnh2kfq67khr"]
+
+[ext_resource type="Texture2D" uid="uid://dbsgmovmc45no" path="res://Sprites/Characters/Frog/hud_frog_normal.png" id="1_l2p0j"]
+[ext_resource type="Script" uid="uid://dcsmkuqg7gtmc" path="res://Scripts/HUD/direction_button.gd" id="2_e8nk2"]
+
+[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 5
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=485152673]
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1980005865]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1382301872]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="CharacterPictureContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=2092373431]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/CharacterPictureContainer" unique_id=1150617996]
+layout_mode = 2
+
+[node name="CharacterPicture" type="TextureRect" parent="MarginContainer/HBoxContainer/CharacterPictureContainer" unique_id=2077735813]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_l2p0j")
+stretch_mode = 5
+
+[node name="SkillsAndMovement" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=182044664]
+custom_minimum_size = Vector2(330, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/SkillsAndMovement" unique_id=275904040]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement" unique_id=1078012354]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MovementContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer" unique_id=718702560]
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer" unique_id=1300000919]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer" unique_id=1741173149]
+custom_minimum_size = Vector2(71, 0)
+layout_mode = 2
+text = "<-"
+script = ExtResource("2_e8nk2")
+metadata/_custom_type_script = "uid://dcsmkuqg7gtmc"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer" unique_id=393584760]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Up" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer" unique_id=176125025]
+custom_minimum_size = Vector2(72, 60)
+layout_mode = 2
+text = "/\\
+|"
+script = ExtResource("2_e8nk2")
+direction = 1
+metadata/_custom_type_script = "uid://dcsmkuqg7gtmc"
+
+[node name="Down" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer" unique_id=1471056983]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+text = "|
+\\/"
+script = ExtResource("2_e8nk2")
+direction = 2
+metadata/_custom_type_script = "uid://dcsmkuqg7gtmc"
+
+[node name="Right" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer" unique_id=436452230]
+custom_minimum_size = Vector2(71, 0)
+layout_mode = 2
+text = "->"
+script = ExtResource("2_e8nk2")
+direction = 3
+metadata/_custom_type_script = "uid://dcsmkuqg7gtmc"
+
+[node name="SkillsContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer" unique_id=487211546]
+custom_minimum_size = Vector2(115, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer" unique_id=260004591]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SkillTop" type="ColorRect" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer" unique_id=905975518]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+color = Color(0, 0, 1, 1)
+
+[node name="SkillBottom" type="ColorRect" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer" unique_id=71495343]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ItemContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=2068575210]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/ItemContainer" unique_id=661725496]
+layout_mode = 2
+
+[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left" method="_on_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Up" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Up" method="_on_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Down" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Down" method="_on_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Right" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Right" method="_on_button_down"]
