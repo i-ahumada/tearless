@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://csrblxwl5jam5"]
+
+[ext_resource type="Script" uid="uid://duwe6ruq1is6t" path="res://Scenes/GameController/game_controller.gd" id="1_kx2cw"]
+[ext_resource type="PackedScene" uid="uid://p4h75kwuub7c" path="res://Scenes/HUD/hud.tscn" id="1_nqxm2"]
+
+[node name="GameController" type="Node2D" unique_id=16930123]
+script = ExtResource("1_kx2cw")
+
+[node name="HUD" parent="." unique_id=457467768 instance=ExtResource("1_nqxm2")]
+propagate_maximum_size = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 1
+grow_vertical = 1

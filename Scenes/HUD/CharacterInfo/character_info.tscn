@@ -15,7 +15,7 @@ pivot_offset_ratio = Vector2(0, 1)
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_bottom = 15
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=485152673]
 layout_mode = 2
