@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duwe6ruq1is6t" path="res://Scripts/GameController/game_controller.gd" id="1_kx2cw"]
 [ext_resource type="PackedScene" uid="uid://p4h75kwuub7c" path="res://Scenes/HUD/hud.tscn" id="1_nqxm2"]
+[ext_resource type="Script" uid="uid://bxluioq7i3rsx" path="res://Scripts/RoomContainer/room_container.gd" id="3_w5uht"]
 
 [node name="GameController" type="Node2D" unique_id=16930123]
 script = ExtResource("1_kx2cw")
@@ -15,3 +16,6 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="RoomContainer" type="Node2D" parent="." unique_id=1354968221]
+script = ExtResource("3_w5uht")
