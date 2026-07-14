@@ -8,3 +8,21 @@ enum Directions {
 	RIGHT,
 	NONE
 }
+
+enum NodeType {
+	COMBAT,
+	LORE,
+	ITEM, # Optional
+	EMPTY,
+	NEXT_LEVEL,
+	END,
+}
+
+enum NodeState {
+	ACTION,
+	MOVEMENT
+}
+
+enum Enemies {
+	SPIDER,
+}

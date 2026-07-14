@@ -4,7 +4,24 @@ extends Node2D
 # | Maneja que se carga, la navegación y mantiene el estado |
 # +---------------------------------------------------------+
 
-# variable que sea MapGraph -> Corresponde al nivel actual.
+@export var starting_map_route: String = "res://Maps/map_test.json"
+
+## Level nbr
+var level: int = 1
+
+## MapGraph structure that corresponds to the current map level
+var mapGraph: MapGraph
+
+func _ready():
+	mapGraph = MapGraph.new(starting_map_route)
+	mapGraph.move_direction(GameEnums.Directions.UP)
+	print(mapGraph.current_node.id)
+	mapGraph.move_direction(GameEnums.Directions.DOWN)
+	print(mapGraph.current_node.id)
+	mapGraph.move_direction(GameEnums.Directions.RIGHT)
+	print(mapGraph.current_node.id)
+	mapGraph.move_direction(GameEnums.Directions.LEFT)
+	print(mapGraph.current_node.id)
 
 # _on_direction_button_clicked(direction: DirectionEnum):
 	# if (current_node.peek_next(direction) == NodeType.NEXT_LEVEL):
@@ -13,8 +30,8 @@ extends Node2D
 		# _next_room(direction)
 
 # _next_room -> avanzar en el mapa
-	# next_node: MapNode = current_node.next(direction)
-	# _load_room(current_node)
+	# mapGraph.move_direction(direction)
+	# _load_room(mapGraph.current_node)
 
 # _next_level -> avanzar en el nivel
 	# Reemplazar el grafo por otro map = new MapGraph(path/to/map)

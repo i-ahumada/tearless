@@ -1,0 +1,70 @@
+{
+	"START": {
+		"id": 0,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "room_1",
+			"RIGHT": "room_4",
+			"UP": "room_3",
+			"DOWN": null
+		}
+	},
+	"room_1": {
+		"id": 1,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "room_2",
+			"RIGHT": "START",
+			"UP": null,
+			"DOWN": null
+		}
+	},
+	"room_2": {
+		"id": 2,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": "room_1",
+			"UP": null,
+			"DOWN": null
+		}
+	},
+	"room_3": {
+		"id": 3,
+		"type": "COMBAT",
+		"state": "ACTION",
+		"visited": false,
+		"enemies": [
+			"SPIDER",
+			"SPIDER"
+		],
+		"start_dialogue": [],
+		"end_dialogue": [],
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": "START"
+		}
+	},
+	"room_4": {
+		"id": 4,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "",
+		"lore_script": "Lorem ipsum",
+		"directions": {
+			"LEFT": "START",
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": null
+		}
+	}
+}
