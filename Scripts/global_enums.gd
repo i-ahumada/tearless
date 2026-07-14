@@ -26,3 +26,10 @@ enum NodeState {
 enum Enemies {
 	SPIDER,
 }
+
+enum Skills {
+	ATTACK,
+	DEFEND,
+	SCAPE,
+	NONE
+}
