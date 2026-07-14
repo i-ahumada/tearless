@@ -8,3 +8,10 @@ enum Directions {
 	RIGHT,
 	NONE
 }
+
+enum Skills {
+	ATTACK,
+	DEFEND,
+	SCAPE,
+	NONE
+}
