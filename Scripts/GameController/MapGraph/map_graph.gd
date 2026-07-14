@@ -17,8 +17,14 @@ func _init(map_path: String):
 
 func move_direction(direction: GameEnums.Directions)-> void:
 	assert(current_node.node_directions[direction] != null, "ERROR: Impossible movement")
+
 	current_node = current_node.node_directions[direction]
 	current_node.visited = true
+
+func peek_next(direction: GameEnums.Directions)-> GameEnums.NodeType:
+	assert(current_node.node_directions[direction] != null, "ERROR: Impossible movement")
+
+	return current_node.node_directions[direction].type
 
 func _load_map(map_path: String)-> Dictionary:
 	if !FileAccess.file_exists(map_path):

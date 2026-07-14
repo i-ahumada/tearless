@@ -5,7 +5,7 @@ signal button_change_room(direction: GameEnums.Directions)
 
 @export var direction: GameEnums.Directions = GameEnums.Directions.NONE;
 @export var disabled_icon: Resource = null
-@export var active_icon: Resource = null 
+@export var active_icon: Resource = null
 
 func _ready():
 	if (direction == GameEnums.Directions.NONE):
@@ -24,4 +24,3 @@ func disable_button():
 func _on_button_down():
 	assert(direction != GameEnums.Directions.NONE)
 	button_change_room.emit(direction)
-	print("direction emitted: ", direction)

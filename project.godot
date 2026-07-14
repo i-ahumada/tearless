@@ -16,6 +16,8 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
@@ -28,5 +30,7 @@ window/vsync/vsync_mode=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=3
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
 textures/vsync/vsync_mode=1

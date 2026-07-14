@@ -14,20 +14,14 @@ var mapGraph: MapGraph
 
 func _ready():
 	mapGraph = MapGraph.new(starting_map_route)
-	mapGraph.move_direction(GameEnums.Directions.UP)
-	print(mapGraph.current_node.id)
-	mapGraph.move_direction(GameEnums.Directions.DOWN)
-	print(mapGraph.current_node.id)
-	mapGraph.move_direction(GameEnums.Directions.RIGHT)
-	print(mapGraph.current_node.id)
-	mapGraph.move_direction(GameEnums.Directions.LEFT)
-	print(mapGraph.current_node.id)
 
-# _on_direction_button_clicked(direction: DirectionEnum):
-	# if (current_node.peek_next(direction) == NodeType.NEXT_LEVEL):
-		# _next_level(direction)
-	# else
-		# _next_room(direction)
+func _on_direction_button_clicked(direction: GameEnums.Directions):
+	if (mapGraph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
+		print("next level: ", mapGraph.current_node.id)
+		# _next_level
+	else:
+		mapGraph.move_direction(direction) # sacar cuando se implemente _next_room()
+		# _next_room()
 
 # _next_room -> avanzar en el mapa
 	# mapGraph.move_direction(direction)
@@ -46,4 +40,3 @@ func _ready():
 # _load_room(room_data: RoomData):
 	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
 	# actualiza el mapa
-	# envia de vuelta al hud para el minimapa?

@@ -6,7 +6,7 @@ class_name MapNode
 var id: int = -1
 var visited: bool = false
 var state: GameEnums.NodeState
-var node_directions = {
+var node_directions: Dictionary[GameEnums.Directions,MapNode] = {
 	GameEnums.Directions.LEFT: null,
 	GameEnums.Directions.RIGHT: null,
 	GameEnums.Directions.UP: null,

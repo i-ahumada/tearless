@@ -10,7 +10,7 @@ func _ready() -> void:
 	else:
 		disabled = false
 		open_eye()
-	
+
 
 func open_eye():
 	icon = opened_eye

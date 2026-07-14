@@ -63,8 +63,20 @@
 		"directions": {
 			"LEFT": "START",
 			"RIGHT": null,
-			"UP": null,
+			"UP": "EXIT",
 			"DOWN": null
+		}
+	},
+	"EXIT": {
+		"id": 99,
+		"type": "NEXT_LEVEL",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": "room_4"
 		}
 	}
 }

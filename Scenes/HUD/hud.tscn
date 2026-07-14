@@ -2,19 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://byp3rc0gqa66o" path="res://Scenes/HUD/MiniMap/mini_map.tscn" id="1_5aai8"]
 [ext_resource type="PackedScene" uid="uid://rnh2kfq67khr" path="res://Scenes/HUD/CharacterInfo/character_info.tscn" id="1_33i1w"]
+[ext_resource type="Script" uid="uid://bgtmiqs7aohej" path="res://Scripts/HUD/hud.gd" id="1_a56j6"]
 
-[node name="HUD" type="Control" unique_id=457467768]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" type="CanvasLayer" unique_id=105874555]
+script = ExtResource("1_a56j6")
 
 [node name="MiniMap" parent="." unique_id=573718819 instance=ExtResource("1_5aai8")]
-layout_mode = 0
-offset_right = 200.0
-offset_bottom = 200.0
+custom_minimum_size = Vector2(50, 50)
 
 [node name="CharacterInfo" parent="." unique_id=1581931985 instance=ExtResource("1_33i1w")]
-layout_mode = 1
+
+[connection signal="direction_button_clicked" from="CharacterInfo" to="." method="_on_character_info_direction_button_clicked"]
