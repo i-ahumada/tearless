@@ -5,6 +5,8 @@ extends Node2D
 # +---------------------------------------------------------+
 
 @export var starting_map_route: String = "res://Maps/map_test.json"
+@onready var room1 = preload("res://Scenes/Rooms/room_1.tscn")
+@onready var room2 = preload("res://Scenes/Rooms/room_2.tscn")
 
 ## Level nbr
 var level: int = 1
@@ -14,6 +16,7 @@ var mapGraph: MapGraph
 
 func _ready():
 	mapGraph = MapGraph.new(starting_map_route)
+	$RoomContainer.add_child(room1.instantiate())
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (mapGraph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
@@ -21,6 +24,9 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 		# _next_level
 	else:
 		mapGraph.move_direction(direction) # sacar cuando se implemente _next_room()
+		for child in $RoomContainer.get_children():
+			child.queue_free()
+		$RoomContainer.add_child(room2.instantiate())
 		# _next_room()
 
 # _next_room -> avanzar en el mapa
