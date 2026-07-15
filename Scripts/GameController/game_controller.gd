@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 # +---------------------------------------------------------+
 # | Maneja que se carga, la navegación y mantiene el estado |
