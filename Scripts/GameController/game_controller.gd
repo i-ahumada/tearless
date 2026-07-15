@@ -14,6 +14,7 @@ var mapGraph: MapGraph
 
 func _ready():
 	mapGraph = MapGraph.new(starting_map_route)
+	$HUD.start_mini_map(mapGraph)
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (mapGraph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
@@ -21,6 +22,7 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 		# _next_level
 	else:
 		mapGraph.move_direction(direction) # sacar cuando se implemente _next_room()
+		$HUD.move_room_mini_map(mapGraph.current_node.id)
 		# _next_room()
 
 # _next_room -> avanzar en el mapa

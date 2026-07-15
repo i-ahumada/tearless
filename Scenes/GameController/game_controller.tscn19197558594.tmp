@@ -9,6 +9,7 @@ script = ExtResource("1_kx2cw")
 
 [node name="HUD" parent="." unique_id=457467768 instance=ExtResource("1_nqxm2")]
 
-[connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]
 [node name="RoomContainer" type="Node2D" parent="." unique_id=1354968221]
 script = ExtResource("3_w5uht")
+
+[connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]

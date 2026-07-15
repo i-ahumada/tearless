@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://yfhqi5b0xtgd"]
+
+[ext_resource type="Script" uid="uid://thqtrwh4e45c" path="res://Scripts/HUD/MiniMap/map_room_cell.gd" id="1_63g2x"]
+
+[node name="MapRoomCell" type="Control" unique_id=1070550883]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_63g2x")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1102953845]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1152878335]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="Right" type="ColorRect" parent="." unique_id=531168379]
+visible = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 25.0
+offset_bottom = 15.0
+
+[node name="Up" type="ColorRect" parent="." unique_id=986709947]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_right = 16.0
+offset_bottom = 3.0
+
+[node name="Down" type="ColorRect" parent="." unique_id=1059291242]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 16.0
+offset_bottom = 25.0
+
+[node name="Left" type="ColorRect" parent="." unique_id=1384149602]
+visible = false
+layout_mode = 0
+offset_top = 9.0
+offset_right = 3.0
+offset_bottom = 15.0
