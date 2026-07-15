@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://byp3rc0gqa66o"]
 
 [ext_resource type="Script" uid="uid://bdrghf81py6d2" path="res://Scenes/HUD/MiniMap/mini_map_container.gd" id="1_s3ec2"]
+[ext_resource type="Script" uid="uid://23orjbbrvuf2" path="res://Scripts/HUD/MiniMap/mini_map.gd" id="2_tr72b"]
 
-[node name="MiniMap" type="MarginContainer" unique_id=573718819]
+[node name="MiniMapContainer" type="MarginContainer" unique_id=573718819]
 offset_right = 200.0
 offset_bottom = 200.0
 theme_override_constants/margin_left = 15
@@ -12,3 +13,9 @@ script = ExtResource("1_s3ec2")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=149766274]
 layout_mode = 2
 color = Color(0.047058824, 0.015686275, 0.12941177, 1)
+
+[node name="Minimap" type="Control" parent="." unique_id=336445790]
+custom_minimum_size = Vector2(185, 185)
+clip_contents = true
+layout_mode = 2
+script = ExtResource("2_tr72b")
