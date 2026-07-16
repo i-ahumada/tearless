@@ -1,12 +1,13 @@
 extends Node2D
+class_name RoomContainer
 
 @export var state: GameEnums.NodeState
-
-signal _on_state_change(state_change: GameEnums.NodeState)
+var room_factory: RoomFactory
 
 func _ready() -> void:
-	pass # Replace with function body.
+	room_factory = RoomFactory.new()
 
-
-func _process(delta: float) -> void:
-	pass
+func change_room(map_node:MapNode):
+	for child in get_children():
+		child.queue_free()
+	add_child(room_factory.create_room(map_node))

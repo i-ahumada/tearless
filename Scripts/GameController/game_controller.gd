@@ -1,6 +1,7 @@
 extends Node
 
 @export var starting_map_route: String = "res://Maps/map_test.json"
+@export var room_container: RoomContainer
 
 signal change_room(map_node: MapNode)
 signal change_level(map_graph: MapGraph)
@@ -33,3 +34,4 @@ func _on_update_room_state():
 # _load_room(room_data: RoomData):
 	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
 	# actualiza el mapa
+	#actualizar el hud (desactivar movimiento que no se puede)

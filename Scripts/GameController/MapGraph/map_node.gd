@@ -6,6 +6,8 @@ class_name MapNode
 var id: int = -1
 var visited: bool = false
 var state: GameEnums.NodeState
+var background: String
+
 var node_directions: Dictionary[GameEnums.Directions,MapNode] = {
 	GameEnums.Directions.LEFT: null,
 	GameEnums.Directions.RIGHT: null,
@@ -18,3 +20,4 @@ func _init(node_data: Dictionary):
 	type = NodeUtils.node_data_type_to_enum(node_data["type"])
 	visited = node_data["visited"]
 	state = NodeUtils.node_data_state_to_enum(node_data["state"])
+	background = node_data["background"]
