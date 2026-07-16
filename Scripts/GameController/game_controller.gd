@@ -5,8 +5,7 @@ extends Node2D
 # +---------------------------------------------------------+
 
 @export var starting_map_route: String = "res://Maps/map_test.json"
-@onready var room1 = preload("res://Scenes/Rooms/room_1.tscn")
-@onready var room2 = preload("res://Scenes/Rooms/room_2.tscn")
+@export var room_container: RoomContainer
 
 ## Level nbr
 var level: int = 1
@@ -16,22 +15,17 @@ var mapGraph: MapGraph
 
 func _ready():
 	mapGraph = MapGraph.new(starting_map_route)
-	$RoomContainer.add_child(room1.instantiate())
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (mapGraph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
 		print("next level: ", mapGraph.current_node.id)
 		# _next_level
 	else:
-		mapGraph.move_direction(direction) # sacar cuando se implemente _next_room()
-		for child in $RoomContainer.get_children():
-			child.queue_free()
-		$RoomContainer.add_child(room2.instantiate())
-		# _next_room()
+		mapGraph.move_direction(direction)
+		_next_room()
 
-# _next_room -> avanzar en el mapa
-	# mapGraph.move_direction(direction)
-	# _load_room(mapGraph.current_node)
+func _next_room():
+	room_container.change_room(mapGraph.current_node)
 
 # _next_level -> avanzar en el nivel
 	# Reemplazar el grafo por otro map = new MapGraph(path/to/map)
@@ -46,3 +40,4 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 # _load_room(room_data: RoomData):
 	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
 	# actualiza el mapa
+	#actualizar el hud (desactivar movimiento que no se puede)

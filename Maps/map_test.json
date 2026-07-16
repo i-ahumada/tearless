@@ -9,7 +9,8 @@
 			"RIGHT": "room_4",
 			"UP": "room_3",
 			"DOWN": null
-		}
+		},
+		"background": "start_room.png"
 	},
 	"room_1": {
 		"id": 1,
@@ -21,7 +22,8 @@
 			"RIGHT": "START",
 			"UP": null,
 			"DOWN": null
-		}
+		},
+		"background": "room_1.png"
 	},
 	"room_2": {
 		"id": 2,
@@ -33,7 +35,8 @@
 			"RIGHT": "room_1",
 			"UP": null,
 			"DOWN": null
-		}
+		},
+		"background": "room_2.png"
 	},
 	"room_3": {
 		"id": 3,
@@ -51,7 +54,8 @@
 			"RIGHT": null,
 			"UP": null,
 			"DOWN": "START"
-		}
+		},
+		"background": "room_3.png"
 	},
 	"room_4": {
 		"id": 4,
@@ -65,7 +69,8 @@
 			"RIGHT": null,
 			"UP": "EXIT",
 			"DOWN": null
-		}
+		},
+		"background": "room_4.png"
 	},
 	"EXIT": {
 		"id": 99,
@@ -77,6 +82,7 @@
 			"RIGHT": null,
 			"UP": null,
 			"DOWN": "room_4"
-		}
+		},
+		"background": "exit.png"
 	}
 }

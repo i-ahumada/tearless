@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://dyoy7bc75sbkv"]
 
-[node name="CombatRoom" type="Node2D" unique_id=1502800927]
+[ext_resource type="Script" uid="uid://dcr3xrjrrs7bp" path="res://Scripts/RoomContainer/combat_room.gd" id="1_5yi6r"]
+
+[node name="CombatRoom" type="Node2D" unique_id=1502800927 node_paths=PackedStringArray("background")]
+script = ExtResource("1_5yi6r")
+background = NodePath("PanelContainer/TextureRect")
+route = null
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2035828751]
 offset_right = 1280.0
 offset_bottom = 720.0
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer" unique_id=1592063168]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1955253687]
 layout_mode = 2
