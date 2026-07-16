@@ -30,6 +30,6 @@ enum Enemies {
 enum Skills {
 	ATTACK,
 	DEFEND,
-	SCAPE,
+	ESCAPE,
 	NONE
 }
