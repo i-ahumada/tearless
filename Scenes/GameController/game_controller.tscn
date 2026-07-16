@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://duwe6ruq1is6t" path="res://Scripts/GameController/game_controller.gd" id="1_kx2cw"]
 [ext_resource type="PackedScene" uid="uid://p4h75kwuub7c" path="res://Scenes/HUD/hud.tscn" id="1_nqxm2"]
 
-[node name="GameController" type="Node2D" unique_id=16930123]
+[node name="GameController" type="Node" unique_id=976641269]
 script = ExtResource("1_kx2cw")
 
 [node name="HUD" parent="." unique_id=457467768 instance=ExtResource("1_nqxm2")]
 
+[connection signal="change_level" from="." to="HUD" method="_on_change_level"]
+[connection signal="change_room" from="." to="HUD" method="_on_change_room"]
 [connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]

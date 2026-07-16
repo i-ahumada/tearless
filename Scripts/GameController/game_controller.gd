@@ -1,40 +1,31 @@
-extends Node2D
-
-# +---------------------------------------------------------+
-# | Maneja que se carga, la navegación y mantiene el estado |
-# +---------------------------------------------------------+
+extends Node
 
 @export var starting_map_route: String = "res://Maps/map_test.json"
+
+signal change_room(map_node: MapNode)
+signal change_level(map_graph: MapGraph)
+signal enemy_hit(damage: int)
+signal player_hit(damage: int)
 
 ## Level nbr
 var level: int = 1
 
 ## MapGraph structure that corresponds to the current map level
-var mapGraph: MapGraph
+var map_graph: MapGraph
 
 func _ready():
-	mapGraph = MapGraph.new(starting_map_route)
-	$HUD.start_mini_map(mapGraph)
+	map_graph = MapGraph.new(starting_map_route)
+	$HUD.start(map_graph)
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
-	if (mapGraph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
-		print("next level: ", mapGraph.current_node.id)
-		# _next_level
+	if (map_graph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
+		change_level.emit(map_graph)
 	else:
-		mapGraph.move_direction(direction) # sacar cuando se implemente _next_room()
-		$HUD.move_room_mini_map(mapGraph.current_node.id)
-		# _next_room()
+		map_graph.move_direction(direction) # sacar cuando se implemente _next_room()
+		change_room.emit(map_graph.current_node)
 
-# _next_room -> avanzar en el mapa
-	# mapGraph.move_direction(direction)
-	# _load_room(mapGraph.current_node)
-
-# _next_level -> avanzar en el nivel
-	# Reemplazar el grafo por otro map = new MapGraph(path/to/map)
-	# _load_room(map.start_node)
-	# avisar al hud
-
-# _on_update_room_state():
+func _on_update_room_state():
+	pass
 	# actualiza según lo que envíe el container del Room
 	# avisa al hud el cambio de estado
 

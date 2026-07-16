@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://v3k6meq4s61m" path="res://Scripts/HUD/CharacterInfo/character_info.gd" id="1_fwhei"]
 [ext_resource type="Texture2D" uid="uid://dbsgmovmc45no" path="res://Sprites/Characters/Frog/hud_frog_normal.png" id="1_l2p0j"]
-[ext_resource type="Script" uid="uid://dcsmkuqg7gtmc" path="res://Scripts/HUD/direction_button.gd" id="2_e8nk2"]
+[ext_resource type="Script" uid="uid://dcsmkuqg7gtmc" path="res://Scripts/HUD/CharacterInfo/direction_button.gd" id="2_e8nk2"]
 [ext_resource type="Texture2D" uid="uid://cdqm27k87vo2b" path="res://Sprites/Buttons/left_button.png" id="2_xyrle"]
 [ext_resource type="Texture2D" uid="uid://xwd5muthpl46" path="res://Sprites/Buttons/left_button_disabled.png" id="4_tpdfi"]
 [ext_resource type="Texture2D" uid="uid://c4d08t8h62cgv" path="res://Sprites/Buttons/up_button.png" id="4_uybnm"]
@@ -13,15 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://dwp3a4sh1kjjk" path="res://Sprites/Buttons/right_button_disabled.png" id="10_aj45l"]
 [ext_resource type="Texture2D" uid="uid://b1lutucq8xhr2" path="res://Sprites/Life/tear.png" id="11_12jr7"]
 [ext_resource type="Texture2D" uid="uid://b6h8uqupbopo2" path="res://Sprites/Life/tear_base.png" id="11_j51ka"]
-[ext_resource type="Texture2D" uid="uid://bj8cj2pxrfxy8" path="res://Sprites/Skills/knife.png" id="12_1l4w7"]
-[ext_resource type="Script" uid="uid://k23t4j82pf38" path="res://Scripts/HUD/skill_button.gd" id="13_1l4w7"]
-[ext_resource type="Texture2D" uid="uid://dck01uhk81gyf" path="res://Sprites/Skills/eye_opened.png" id="13_1lr76"]
-[ext_resource type="Script" uid="uid://b0s4qdebb2x6q" path="res://Scripts/HUD/tear_bar.gd" id="13_6wyhd"]
-[ext_resource type="Texture2D" uid="uid://dj1t2ntprik8u" path="res://Sprites/Skills/Scape.png" id="14_0huw1"]
-[ext_resource type="Script" uid="uid://bg1i5talxfhl3" path="res://Scripts/HUD/eye_skill_button.gd" id="15_0huw1"]
+[ext_resource type="Texture2D" uid="uid://bb7qxv7kh12aa" path="res://Sprites/Skills/knife.png" id="12_1l4w7"]
+[ext_resource type="Script" uid="uid://k23t4j82pf38" path="res://Scripts/HUD/CharacterInfo/skill_button.gd" id="13_1l4w7"]
+[ext_resource type="Texture2D" uid="uid://5eu2ed04g64i" path="res://Sprites/Skills/eye_opened.png" id="13_1lr76"]
+[ext_resource type="Script" uid="uid://b0s4qdebb2x6q" path="res://Scripts/HUD/CharacterInfo/tear_bar.gd" id="13_6wyhd"]
+[ext_resource type="Texture2D" uid="uid://dj1t2ntprik8u" path="res://Sprites/Skills/Escape.png" id="14_0huw1"]
+[ext_resource type="Script" uid="uid://bg1i5talxfhl3" path="res://Scripts/HUD/CharacterInfo/eye_skill_button.gd" id="15_0huw1"]
 [ext_resource type="Texture2D" uid="uid://dfr8wiyurfwwr" path="res://Sprites/Skills/eye_closed.png" id="15_1lr76"]
 
-[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tearComponent", "tearPercentage")]
+[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tear_component", "tear_percentage", "dialogue_label", "direction_buttons_dict")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -35,8 +35,15 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 script = ExtResource("1_fwhei")
-tearComponent = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar")
-tearPercentage = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar/TearText")
+tear_component = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar")
+tear_percentage = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar/TearText")
+dialogue_label = NodePath("MarginContainer/HBoxContainer/TextContainer/MarginContainer/Dialogue")
+direction_buttons_dict = {
+0: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left"),
+1: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Up"),
+2: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Down"),
+3: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Right")
+}
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=485152673]
 layout_mode = 2
@@ -64,7 +71,7 @@ layout_mode = 2
 color = Color(0.047058824, 0.015686275, 0.12941177, 1)
 
 [node name="CharacterPicture" type="TextureRect" parent="MarginContainer/HBoxContainer/CharacterPictureContainer" unique_id=2077735813]
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("1_l2p0j")
@@ -208,7 +215,7 @@ closed_eye = ExtResource("15_1lr76")
 skill = 1
 metadata/_custom_type_script = "uid://k23t4j82pf38"
 
-[node name="Scape" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer" unique_id=1758978031]
+[node name="Escape" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer" unique_id=1758978031]
 layout_mode = 2
 icon = ExtResource("14_0huw1")
 flat = true
@@ -216,13 +223,27 @@ script = ExtResource("13_1l4w7")
 skill = 2
 metadata/_custom_type_script = "uid://k23t4j82pf38"
 
-[node name="ItemContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=2068575210]
+[node name="TextContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=2068575210]
 custom_minimum_size = Vector2(375, 0)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/ItemContainer" unique_id=661725496]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/HBoxContainer/TextContainer" unique_id=661725496]
 layout_mode = 2
 color = Color(0.047058824, 0.015686275, 0.12941177, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/TextContainer" unique_id=229105898]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Dialogue" type="Label" parent="MarginContainer/HBoxContainer/TextContainer/MarginContainer" unique_id=287060359]
+custom_maximum_size = Vector2(355, 124)
+layout_mode = 2
+size_flags_vertical = 1
+text = "..."
+autowrap_mode = 3
 
 [connection signal="button_change_room" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left" to="." method="_on_button_change_room"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left" method="_on_button_down"]
@@ -236,4 +257,4 @@ color = Color(0.047058824, 0.015686275, 0.12941177, 1)
 [connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Knife" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Knife" method="_on_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye" method="_on_button_down"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye" method="_on_pressed"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Scape" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Scape" method="_on_button_down"]
+[connection signal="button_down" from="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Escape" to="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Escape" method="_on_button_down"]

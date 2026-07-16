@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj1t2ntprik8u"
-path="res://.godot/imported/Scape.png-f582cd4d9eadcd4880032cc0bc4b19f0.ctex"
+path="res://.godot/imported/Escape.png-9ffefd20f682829a9b0a0e7c4eaed0a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Skills/Scape.png"
-dest_files=["res://.godot/imported/Scape.png-f582cd4d9eadcd4880032cc0bc4b19f0.ctex"]
+source_file="res://Sprites/Skills/Escape.png"
+dest_files=["res://.godot/imported/Escape.png-9ffefd20f682829a9b0a0e7c4eaed0a2.ctex"]
 
 [params]
 
