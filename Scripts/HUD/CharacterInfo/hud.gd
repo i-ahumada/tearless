@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal direction_button_clicked(direction: GameEnums.Directions)
+signal skill_button_cliked(skill: GameEnums.Skills)
 
 func start(map_graph: MapGraph):
 	$CharacterInfo.set_dialogue("...")
@@ -25,3 +26,7 @@ func _on_change_room(map_node: MapNode, direction: GameEnums.Directions):
 		$CharacterInfo.enable_only_valid_directions(map_node)
 	else:
 		$CharacterInfo.disable_all_directions()
+
+
+func _on_character_info_skill_button_clicked(skill: GameEnums.Skills) -> void:
+	skill_button_cliked.emit(skill)

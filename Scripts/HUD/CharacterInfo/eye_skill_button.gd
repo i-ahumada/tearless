@@ -21,6 +21,9 @@ func close_eye():
 
 func _on_pressed() -> void:
 	if (icon == closed_eye):
-		open_eye()
-	else:
-		close_eye()
+		return
+	close_eye()
+	disabled = true
+	await get_tree().create_timer(2.0).timeout
+	disabled = false
+	open_eye()

@@ -2,6 +2,7 @@ extends MarginContainer
 
 
 signal direction_button_clicked(direction: GameEnums.Directions)
+signal skill_button_clicked(skill: GameEnums.Skills)
 
 @export var tear_component: TextureProgressBar
 @export var tear_percentage: Label
@@ -28,3 +29,7 @@ func enable_only_valid_directions(map_node: MapNode):
 
 func _on_button_change_room(direction: GameEnums.Directions):
 	direction_button_clicked.emit(direction)
+
+
+func _on_button_skill(skill: GameEnums.Skills) -> void:
+	skill_button_clicked.emit(skill)

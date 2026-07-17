@@ -23,3 +23,4 @@ offset_right = 229.0
 offset_bottom = 695.0
 
 [connection signal="direction_button_clicked" from="CharacterInfo" to="." method="_on_character_info_direction_button_clicked"]
+[connection signal="skill_button_clicked" from="CharacterInfo" to="." method="_on_character_info_skill_button_clicked"]
