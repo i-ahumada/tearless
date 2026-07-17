@@ -26,7 +26,7 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 		map_graph.move_direction(direction) # sacar cuando se implemente _next_room()
 		change_room.emit(map_graph.current_node, direction)
 
-func _on_update_room_state():
+func _on_update_room_state(room_node: MapNode):
 	pass
 	# actualiza según lo que envíe el container del Room
 	# avisa al hud el cambio de estado

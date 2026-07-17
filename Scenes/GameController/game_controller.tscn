@@ -17,3 +17,5 @@ script = ExtResource("3_w5uht")
 [connection signal="change_room" from="." to="HUD" method="_on_change_room"]
 [connection signal="change_room" from="." to="RoomContainer" method="_on_change_room"]
 [connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]
+[connection signal="update_room_state" from="RoomContainer" to="." method="_on_update_room_state"]
+[connection signal="update_room_state" from="RoomContainer" to="HUD" method="_on_update_room_state"]

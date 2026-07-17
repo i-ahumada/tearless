@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbsgmovmc45no"
-path="res://.godot/imported/hud_frog_normal.png-d5cd677d16392a1cf3a38d8ed3401267.ctex"
+uid="uid://b8iakcwdvyen8"
+path="res://.godot/imported/cualquier_cosa.png-eac2d70d175274c419f242918cd20e23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Frog/hud_frog_normal.png"
-dest_files=["res://.godot/imported/hud_frog_normal.png-d5cd677d16392a1cf3a38d8ed3401267.ctex"]
+source_file="res://Images/Events/cualquier_cosa.png"
+dest_files=["res://.godot/imported/cualquier_cosa.png-eac2d70d175274c419f242918cd20e23.ctex"]
 
 [params]
 

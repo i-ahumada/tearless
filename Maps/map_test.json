@@ -62,7 +62,7 @@
 		"type": "LORE",
 		"state": "ACTION",
 		"visited": false,
-		"image_path": "",
+		"image_path": "cualquier_cosa.png",
 		"lore_script": "Lorem ipsum",
 		"directions": {
 			"LEFT": "START",

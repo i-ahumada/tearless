@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://rnh2kfq67khr"]
 
 [ext_resource type="Script" uid="uid://v3k6meq4s61m" path="res://Scripts/HUD/CharacterInfo/character_info.gd" id="1_fwhei"]
-[ext_resource type="Texture2D" uid="uid://dbsgmovmc45no" path="res://Sprites/Characters/Frog/hud_frog_normal.png" id="1_l2p0j"]
+[ext_resource type="Texture2D" uid="uid://bsr2hx2ux83fr" path="res://Sprites/Characters/Protagonist/protagonist.png" id="2_6wyhd"]
 [ext_resource type="Script" uid="uid://dcsmkuqg7gtmc" path="res://Scripts/HUD/CharacterInfo/direction_button.gd" id="2_e8nk2"]
 [ext_resource type="Texture2D" uid="uid://cdqm27k87vo2b" path="res://Sprites/Buttons/left_button.png" id="2_xyrle"]
 [ext_resource type="Texture2D" uid="uid://xwd5muthpl46" path="res://Sprites/Buttons/left_button_disabled.png" id="4_tpdfi"]
@@ -75,7 +75,7 @@ color = Color(0.047058824, 0.015686275, 0.12941177, 1)
 custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("1_l2p0j")
+texture = ExtResource("2_6wyhd")
 stretch_mode = 5
 
 [node name="SkillsAndMovement" type="PanelContainer" parent="MarginContainer/HBoxContainer" unique_id=182044664]

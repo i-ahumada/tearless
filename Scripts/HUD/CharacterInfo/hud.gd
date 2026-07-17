@@ -18,10 +18,15 @@ func _on_change_level(map_graph: MapGraph):
 	$CharacterInfo.set_dialogue("...")
 	$MiniMap.reset(map_graph)
 
-func _on_change_room(map_node: MapNode, direction: GameEnums.Directions):
-	$MiniMap.update(map_node.id, direction)
-
-	if (map_node.state == GameEnums.NodeState.MOVEMENT):
-		$CharacterInfo.enable_only_valid_directions(map_node)
+func _enable_valid_directions(room_node: MapNode):
+	if (room_node.state == GameEnums.NodeState.MOVEMENT):
+		$CharacterInfo.enable_only_valid_directions(room_node)
 	else:
 		$CharacterInfo.disable_all_directions()
+
+func _on_change_room(map_node: MapNode, direction: GameEnums.Directions):
+	$MiniMap.update(map_node.id, direction)
+	_enable_valid_directions(map_node)
+
+func _on_update_room_state(room_node: MapNode):
+	_enable_valid_directions(room_node)
