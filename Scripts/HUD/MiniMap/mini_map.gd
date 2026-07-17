@@ -11,11 +11,22 @@ var current_room_cell: MapRoomCell = null
 var _map_room_cell_factory = MapRoomCellFactory.new()
 var _map_room_cell_set: Dictionary[int, MapRoomCell]
 
-func switch_room(node_id: int):
+func switch_room(node_id: int, direction: GameEnums.Directions):
 	current_room_cell.leave()
 	_map_room_cell_set.get(node_id).visit()
 	current_room_cell = _map_room_cell_set.get(node_id)
 	_hint_neighbours(current_room_cell)
+
+	var movement: Vector2 = Vector2i(0,0)
+
+	match direction:
+		GameEnums.Directions.LEFT: movement = ADD_RIGHT
+		GameEnums.Directions.RIGHT: movement = ADD_LEFT
+		GameEnums.Directions.UP: movement = ADD_DOWN
+		GameEnums.Directions.DOWN: movement = ADD_UP
+
+	for map_room_cell_id in _map_room_cell_set:
+		_map_room_cell_set[map_room_cell_id].position += movement
 
 func clear():
 	for child in get_children():

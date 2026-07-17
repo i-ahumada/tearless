@@ -7,9 +7,19 @@
 [node name="HUD" type="CanvasLayer" unique_id=105874555]
 script = ExtResource("1_a56j6")
 
+[node name="CharacterInfo" parent="." unique_id=1581931985 node_paths=PackedStringArray("direction_buttons_dict") instance=ExtResource("1_33i1w")]
+direction_buttons_dict = {
+0: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left"),
+1: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Up"),
+2: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Down"),
+3: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Right")
+}
+
 [node name="MiniMap" parent="." unique_id=573718819 instance=ExtResource("1_5aai8")]
 custom_minimum_size = Vector2(50, 50)
-
-[node name="CharacterInfo" parent="." unique_id=1581931985 instance=ExtResource("1_33i1w")]
+offset_left = 29.0
+offset_top = 551.0
+offset_right = 229.0
+offset_bottom = 695.0
 
 [connection signal="direction_button_clicked" from="CharacterInfo" to="." method="_on_character_info_direction_button_clicked"]
