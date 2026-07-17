@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://duwe6ruq1is6t" path="res://Scripts/GameController/game_controller.gd" id="1_kx2cw"]
 [ext_resource type="PackedScene" uid="uid://p4h75kwuub7c" path="res://Scenes/HUD/hud.tscn" id="1_nqxm2"]
 [ext_resource type="Script" uid="uid://bxluioq7i3rsx" path="res://Scripts/RoomContainer/room_container.gd" id="3_w5uht"]
+[ext_resource type="Script" uid="uid://mjctrm0q8j8h" path="res://Scripts/GameController/player.gd" id="4_g6ftq"]
 
 [node name="GameController" type="Node" unique_id=16930123 node_paths=PackedStringArray("room_container")]
 script = ExtResource("1_kx2cw")
@@ -13,9 +14,15 @@ room_container = NodePath("RoomContainer")
 [node name="RoomContainer" type="Node" parent="." unique_id=1738164503]
 script = ExtResource("3_w5uht")
 
+[node name="Player" type="Node" parent="." unique_id=1540974958]
+script = ExtResource("4_g6ftq")
+life_value = 100
+
 [connection signal="change_level" from="." to="HUD" method="_on_change_level"]
 [connection signal="change_room" from="." to="HUD" method="_on_change_room"]
 [connection signal="change_room" from="." to="RoomContainer" method="_on_change_room"]
+[connection signal="player_hit" from="." to="Player" method="_on_player_hit"]
 [connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]
 [connection signal="update_room_state" from="RoomContainer" to="." method="_on_update_room_state"]
 [connection signal="update_room_state" from="RoomContainer" to="HUD" method="_on_update_room_state"]
+[connection signal="skill_button_cliked" from="HUD" to="." method="_on_skill_button_cliked"]

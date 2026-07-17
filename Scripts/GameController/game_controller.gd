@@ -2,6 +2,7 @@ extends Node
 
 @export var starting_map_route: String = "res://Maps/map_test.json"
 @export var room_container: RoomContainer
+var player: Player
 
 signal change_room(map_node: MapNode, direction: GameEnums.Directions)
 signal change_level(map_graph: MapGraph)
@@ -25,6 +26,7 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 	else:
 		map_graph.move_direction(direction) # sacar cuando se implemente _next_room()
 		change_room.emit(map_graph.current_node, direction)
+		player_hit.emit(20)
 
 func _on_update_room_state(room_node: MapNode):
 	pass
@@ -36,3 +38,16 @@ func _on_update_room_state(room_node: MapNode):
 	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
 	# actualiza el mapa
 	#actualizar el hud (desactivar movimiento que no se puede)
+
+func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
+	match skill:
+		GameEnums.Skills.ATTACK:
+			enemy_hit.emit()
+			print("Emitido por el boton: ", skill)
+		GameEnums.Skills.DEFEND:
+			#player_hit.emit()
+			print("Emitido por el boton: ", skill)
+		GameEnums.Skills.ESCAPE:
+			player.escape()
+			print("Emitido por el boton: ", skill)
+		

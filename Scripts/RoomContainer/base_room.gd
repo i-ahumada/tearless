@@ -13,7 +13,6 @@ func set_background(new_background_path):
 	background.texture = load(new_background_path)
 
 func setup (node:MapNode):
-	#set_background(node.background)
 	set_background(route + node.background)
 
 func play():
