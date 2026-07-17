@@ -11,3 +11,6 @@ func setup(map_node:MapNode) -> void:
 	enemies = node.enemies
 	start_dialoge = node.start_dialogue
 	end_dialoge = node.end_dialogue
+
+func setup_enemy():
+	pass #necesito armar el enemigo

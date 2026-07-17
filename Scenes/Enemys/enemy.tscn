@@ -4,6 +4,6 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1923311491]
 
-[node name="TextureRect" type="TextureRect" parent="Sprite2D" unique_id=1087126519]
+[node name="EnemyIcon" type="TextureRect" parent="Sprite2D" unique_id=1087126519]
 offset_right = 40.0
 offset_bottom = 40.0
