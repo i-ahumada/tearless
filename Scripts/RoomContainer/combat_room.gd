@@ -1,13 +1,23 @@
 extends BaseRoom
 class_name CombatRoom
 
-var enemies:Array[GameEnums.Enemies]
-var start_dialoge:Array
-var end_dialoge:Array
+var combat_node: CombatNode
+# var enemies:Array[GameEnums.Enemies]
+# var start_dialoge:Array
+# var end_dialoge:Array
 
 func setup(map_node:MapNode) -> void:
 	super(map_node)
-	var node: CombatNode = map_node as CombatNode
-	enemies = node.enemies
-	start_dialoge = node.start_dialogue
-	end_dialoge = node.end_dialogue
+	combat_node = map_node as CombatNode
+	_combat_flow()
+
+func _combat_flow():
+	_show_dialogue(combat_node.start_dialogue)
+	_combat()
+	_show_dialogue(combat_node.end_dialogue)
+
+func _show_dialogue(dialogue: Array):
+	pass
+
+func _combat():
+	pass

@@ -5,7 +5,6 @@
 [node name="CombatRoom" type="Node2D" unique_id=1594661822 node_paths=PackedStringArray("background")]
 script = ExtResource("1_5yi6r")
 background = NodePath("PanelContainer/Background")
-route = null
 metadata/_custom_type_script = "uid://dcr3xrjrrs7bp"
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=2035828751]
