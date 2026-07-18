@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://bg1i5talxfhl3" path="res://Scripts/HUD/CharacterInfo/eye_skill_button.gd" id="15_0huw1"]
 [ext_resource type="Texture2D" uid="uid://dfr8wiyurfwwr" path="res://Sprites/Skills/eye_closed.png" id="15_1lr76"]
 
-[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tear_component", "tear_percentage", "dialogue_label", "direction_buttons_dict")]
+[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tear_component", "tear_percentage", "dialogue_label", "skill_buttons")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -38,12 +38,7 @@ script = ExtResource("1_fwhei")
 tear_component = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar")
 tear_percentage = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar/TearText")
 dialogue_label = NodePath("MarginContainer/HBoxContainer/TextContainer/MarginContainer/Dialogue")
-direction_buttons_dict = {
-0: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Left"),
-1: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Up"),
-2: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/VBoxContainer/Down"),
-3: NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/MovementContainer/HBoxContainer/Right")
-}
+skill_buttons = [NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Knife"), NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye"), NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Escape")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=485152673]
 layout_mode = 2

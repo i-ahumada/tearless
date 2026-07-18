@@ -24,6 +24,16 @@ enum NodeState {
 	COMBAT
 }
 
+enum EnemiesActions {
+	ATTACK,
+	NONE
+}
+
+enum CombatTurn {
+	PLAYER,
+	ENEMY
+}
+
 enum Enemies {
 	SPIDER,
 	ZOMBIE

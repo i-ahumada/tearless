@@ -41,21 +41,20 @@
 	"room_3": {
 		"id": 3,
 		"type": "COMBAT",
-		"state": "ACTION",
+		"state": "COMBAT",
 		"visited": false,
 		"enemies": [
 			"SPIDER",
-			"ZOMBIE"
 		],
-		"start_dialogue": [],
-		"end_dialogue": [],
+		"start_dialogue": ["Te vamos a tocar", "De manera desubicada"],
+		"end_dialogue": ["AHHHHHH"],
 		"directions": {
 			"LEFT": null,
 			"RIGHT": null,
 			"UP": null,
 			"DOWN": "START"
 		},
-		"background": "room_3.png"
+		"background": "no_doors.png"
 	},
 	"room_4": {
 		"id": 4,
@@ -70,7 +69,7 @@
 			"UP": "EXIT",
 			"DOWN": null
 		},
-		"background": "room_4.png"
+		"background": "front_door.png"
 	},
 	"EXIT": {
 		"id": 99,

@@ -6,6 +6,7 @@ class_name BaseRoom
 @export var route:String = "res://Sprites/Rooms/"
 
 signal room_state_update(node: MapNode)
+signal display_dialogue(dialogue)
 
 var objects: Array
 

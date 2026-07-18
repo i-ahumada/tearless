@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctdbve76nqltq"
-path="res://.godot/imported/room_4.png-d205b874349301679fca891ebfaf16fc.ctex"
+uid="uid://bsa63ve3vdhkj"
+path="res://.godot/imported/zombie.png-f76d01ceaaba20b6962df28e0fbaeb63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/room_4.png"
-dest_files=["res://.godot/imported/room_4.png-d205b874349301679fca891ebfaf16fc.ctex"]
+source_file="res://Sprites/Characters/Enemies/zombie.png"
+dest_files=["res://.godot/imported/zombie.png-f76d01ceaaba20b6962df28e0fbaeb63.ctex"]
 
 [params]
 

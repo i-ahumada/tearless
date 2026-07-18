@@ -1,5 +1,5 @@
 extends Button
-class_name Skill_button
+class_name SkillButton
 
 signal button_skill(skill: GameEnums.Skills)
 

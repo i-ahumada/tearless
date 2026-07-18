@@ -8,6 +8,7 @@ class_name MapGraph
 const START_NODE = "START"
 var map_node_factory: MapNodeFactory = MapNodeFactory.new()
 var start_node: MapNode = null
+var last_direction_moved: GameEnums.Directions = GameEnums.Directions.NONE
 var current_node: MapNode = null
 var node_set: Dictionary = {}
 
@@ -17,7 +18,7 @@ func _init(map_path: String):
 
 func move_direction(direction: GameEnums.Directions)-> void:
 	assert(current_node.node_directions[direction] != null, "ERROR: Impossible movement")
-
+	last_direction_moved = direction
 	current_node = current_node.node_directions[direction]
 	current_node.visited = true
 

@@ -8,7 +8,7 @@ func setup(life_initial_value:int):
 	life_value = life_initial_value
 	hit_value = 10
 
-func update_life(value:int):
+func change_life(value:int):
 	life_value += value
 
 func escape():

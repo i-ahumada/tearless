@@ -1,4 +1,4 @@
-extends Skill_button
+extends SkillButton
 
 @export var opened_eye: Resource = null
 @export var closed_eye: Resource = null

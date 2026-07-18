@@ -15,6 +15,7 @@ static func node_data_type_to_enum(node_type: String)->GameEnums.NodeType:
 static func node_data_state_to_enum(node_state: String)->GameEnums.NodeState:
 	match node_state:
 		"ACTION": return GameEnums.NodeState.ACTION
+		"COMBAT": return GameEnums.NodeState.COMBAT
 		"MOVEMENT": return GameEnums.NodeState.MOVEMENT
 	return GameEnums.NodeState.MOVEMENT
 

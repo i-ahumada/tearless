@@ -1,46 +1,135 @@
 extends BaseRoom
 class_name CombatRoom
 
+# Esto para la parte de combate está diseñado bastante mal (my b)
+# Para el combate no creo que habría que tener que hacer un pasamanos tan grande
+# Para mi esta cosa tendría que tener una referencia al jugador
+# Despues se les podría hacer implementar una interfaz para tenerlos tipados en el arreglo
+# O que hereden de CombatEntity o algo así, por ahora le pongo una constante
+# Malisimo pero este bloque de texto no se borra hasta que lo cambiemos
+# Por las dudas no te quiero cambiar nada
+
+signal change_turn(turn: GameEnums.CombatTurn)
+signal hit_player(damage: int)
+
+enum CombatState {
+	IN_PROGRESS,
+	WIN,
+	LOSE,
+	ESCAPE
+}
+
 var combat_node: CombatNode
 var enemy_factory: EnemyFactory = EnemyFactory.new()
 var enemies:Dictionary[int,Enemy]
+var selected_enemy: Enemy = null
+var turn_queue: Array
+var player_defending = false
 
-const enemy_scene = preload("res://Scenes/Enemys/enemy.tscn")
+const PLAYER_ID = -1
+const enemy_scene = preload("res://Scenes/Enemies/enemy.tscn")
 
 func setup(map_node:MapNode) -> void:
-	var enemy_id:int = 0
-	var enemy:Enemy
 	super(map_node)
+
 	combat_node = map_node as CombatNode
-	for enemy_name in combat_node.enemies:
-		enemy = null
-		enemy = enemy_scene.instantiate() as Enemy
-		add_child(enemy)
-		enemy = enemy_factory.create_enemy(enemy_name,enemy,enemy_id)
-		enemies.set(enemy.id,enemy)
-		#enemies.append(enemy_factory.create_enemy(enemy_name,enemy))#
+
 	#enemies.get(1).initial_position(340,360) hay que variar las posiciones de los enemigos
 	_combat_flow()
 
 func _combat_flow():
-	_show_dialogue(combat_node.start_dialogue)
-	_combat()
-	_show_dialogue(combat_node.end_dialogue)
+	match combat_node.state:
+		GameEnums.NodeState.COMBAT:
+			var enemy_counter:int = 0
+			var enemy:Enemy
+
+			for enemy_name in combat_node.enemies:
+				enemy = enemy_scene.instantiate() as Enemy
+				add_child(enemy)
+
+				enemy = enemy_factory.create_enemy(enemy_name,enemy,enemy_counter) # 🙏
+				enemy.enemy_selected.connect(_select_enemy)
+
+				enemies.set(enemy.id,enemy)
+				enemy_counter += 1
+
+			selected_enemy = enemies[0]
+			selected_enemy.select()
+			await _show_dialogue(combat_node.start_dialogue)
+			_start_combat()
+		GameEnums.NodeState.ACTION: pass
+		GameEnums.NodeState.MOVEMENT: pass
+
+func _select_enemy(enemy_id):
+	if selected_enemy:
+		selected_enemy.unselect()
+	selected_enemy = enemies[enemy_id]
 
 func _show_dialogue(dialogue: Array):
-	pass
+	display_dialogue.emit(dialogue)
 
-func _combat():
-	pass
+func _start_combat():
+	# start turn_queue
+	turn_queue.push_back(PLAYER_ID)
+	for enemy_id in enemies:
+		turn_queue.push_back(enemy_id)
+	_run_combat_step()
 
-func _lost():
-	pass
+func _run_combat_step():
+	var current_turn_id = turn_queue.pop_front()
+
+	if (current_turn_id != PLAYER_ID):
+		assert(enemies[current_turn_id])
+
+		var enemy = enemies[current_turn_id]
+		var enemy_action = enemy.get_action()
+
+		if (enemy_action == GameEnums.EnemiesActions.ATTACK):
+			if (player_defending):
+				_show_dialogue([" dodges "])
+			else:
+				hit_player.emit(enemy.damage_value)
+
+		turn_queue.push_back(current_turn_id)
+
+		_eval_end_turn()
+	else:
+		change_turn.emit(GameEnums.CombatTurn.PLAYER)
+
+func _eval_end_turn():
+	if (!turn_queue.has(PLAYER_ID)):
+		_lose()
+	elif (turn_queue.has(PLAYER_ID) and turn_queue.size() == 1):
+		_win()
+	else:
+		_run_combat_step()
+
+func _lose():
+	print("loser")
+	# Cambia la escena a perdiste
 
 func _win():
-	pass
-	
-func damage_enemy(damage:int,enemy_id):
-	var enemy_damaged = enemies.get(enemy_id)
-	enemy_damaged.update_life(damage)
-	if (enemy_damaged.life_value <= 0):
-		enemy_damaged.free()
+	combat_node.state = GameEnums.NodeState.MOVEMENT
+	room_state_update.emit(combat_node)
+
+func player_defend():
+	player_defending = true
+
+func player_attack(damage:int):
+	player_defending = false
+	if (selected_enemy):
+		selected_enemy.update_life(damage)
+		if (selected_enemy.life_value <= 0):
+			var i = 0
+			while (i < turn_queue.size() and turn_queue[i] != selected_enemy.id):
+				i += 1
+			if (turn_queue[i] == selected_enemy.id):
+				turn_queue.pop_at(i)
+			selected_enemy.queue_free()
+
+		change_turn.emit(GameEnums.CombatTurn.ENEMY)
+		turn_queue.push_back(PLAYER_ID)
+		_eval_end_turn()
+
+	else:
+		_show_dialogue(["Who should I attack?"])

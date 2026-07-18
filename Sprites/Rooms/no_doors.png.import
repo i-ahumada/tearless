@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsa63ve3vdhkj"
-path="res://.godot/imported/zombie.png-cac0a8ac13e94c934dbae385f34d545d.ctex"
+uid="uid://5sy0gt2v2qug"
+path="res://.godot/imported/no_doors.png-d5c06ebc2d3a5c69e986c4166b5831de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Enemys/zombie.png"
-dest_files=["res://.godot/imported/zombie.png-cac0a8ac13e94c934dbae385f34d545d.ctex"]
+source_file="res://Sprites/Rooms/no_doors.png"
+dest_files=["res://.godot/imported/no_doors.png-d5c06ebc2d3a5c69e986c4166b5831de.ctex"]
 
 [params]
 

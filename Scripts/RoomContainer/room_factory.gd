@@ -25,13 +25,19 @@ func instanciate_room(map_node: MapNode) -> BaseRoom:
 
 	return room
 
-func setup_room(room:BaseRoom, map_node: MapNode) -> BaseRoom:
+# What did bro do to my factory 😭
+func setup_room(room_container: RoomContainer, room:BaseRoom, map_node: MapNode) -> BaseRoom:
+	room.display_dialogue.connect(room_container._on_show_dialogue)
+	room.room_state_update.connect(room_container._on_room_state_update)
+
 	match map_node.type:
 		GameEnums.NodeType.EMPTY:
 			room = room as BaseRoom
 			room.setup(map_node)
 		GameEnums.NodeType.COMBAT:
 			room = room as CombatRoom
+			room.change_turn.connect(room_container._on_change_turn)
+			room.hit_player.connect(room_container._on_hit_player)
 			room.setup(map_node)
 		GameEnums.NodeType.LORE:
 			room = room as EventRoom
