@@ -45,7 +45,7 @@
 		"visited": false,
 		"enemies": [
 			"SPIDER",
-			"SPIDER"
+			"ZOMBIE"
 		],
 		"start_dialogue": [],
 		"end_dialogue": [],

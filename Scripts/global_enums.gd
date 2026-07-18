@@ -20,11 +20,13 @@ enum NodeType {
 
 enum NodeState {
 	ACTION,
-	MOVEMENT
+	MOVEMENT,
+	COMBAT
 }
 
 enum Enemies {
 	SPIDER,
+	ZOMBIE
 }
 
 enum Skills {

@@ -14,6 +14,7 @@ func set_dialogue(dialogue):
 
 func _on_character_info_direction_button_clicked(direction):
 	direction_button_clicked.emit(direction)
+	
 
 func _on_change_level(map_graph: MapGraph):
 	$CharacterInfo.set_dialogue("...")
@@ -31,3 +32,7 @@ func _on_change_room(map_node: MapNode, direction: GameEnums.Directions):
 
 func _on_update_room_state(room_node: MapNode):
 	_enable_valid_directions(room_node)
+
+
+func _on_character_info_skill_button_clicked(skill: GameEnums.Skills) -> void:
+	skill_button_cliked.emit(skill)

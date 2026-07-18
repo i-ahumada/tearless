@@ -6,8 +6,8 @@ var player: Player
 
 signal change_room(map_node: MapNode, direction: GameEnums.Directions)
 signal change_level(map_graph: MapGraph)
-signal enemy_hit(damage: int)
-signal player_hit(damage: int)
+signal hit_enemy(damage: int)
+signal hit_player(damage: int)
 
 ## Level nbr
 var level: int = 1
@@ -19,6 +19,7 @@ func _ready():
 	map_graph = MapGraph.new(starting_map_route)
 	$HUD.start(map_graph)
 	$RoomContainer.redraw_room(map_graph.start_node)
+	$Player.setup(100)
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (map_graph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
@@ -26,7 +27,6 @@ func _on_direction_button_clicked(direction: GameEnums.Directions):
 	else:
 		map_graph.move_direction(direction) # sacar cuando se implemente _next_room()
 		change_room.emit(map_graph.current_node, direction)
-		player_hit.emit(20)
 
 func _on_update_room_state(room_node: MapNode):
 	pass
@@ -40,14 +40,13 @@ func _on_update_room_state(room_node: MapNode):
 	#actualizar el hud (desactivar movimiento que no se puede)
 
 func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
+	assert(map_graph.current_node.type == GameEnums.NodeType.COMBAT)
 	match skill:
 		GameEnums.Skills.ATTACK:
-			enemy_hit.emit()
-			print("Emitido por el boton: ", skill)
+			hit_enemy.emit(-$Player.hit_value)
 		GameEnums.Skills.DEFEND:
 			#player_hit.emit()
 			print("Emitido por el boton: ", skill)
 		GameEnums.Skills.ESCAPE:
 			player.escape()
-			print("Emitido por el boton: ", skill)
 		

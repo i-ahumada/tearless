@@ -13,8 +13,9 @@ func _ready() -> void:
 func redraw_room(map_node):
 	for child in get_children():
 		child.queue_free()
-	var room = room_factory.create_room(map_node)
+	var room = room_factory.instanciate_room(map_node)
 	add_child(room)
+	room = room_factory.setup_room(room,map_node)
 	room.room_state_update.connect(_on_room_state_update)
 
 func _on_change_room(map_node, direction: GameEnums.Directions):
@@ -23,3 +24,8 @@ func _on_change_room(map_node, direction: GameEnums.Directions):
 ## This method is connected dynamically with the room it contains
 func _on_room_state_update(room_node: MapNode):
 	update_room_state.emit(room_node)
+	
+func _on_hit_enemy(damage:int):
+	var room = get_child(0)
+	room = room as CombatRoom
+	room.damage_enemy(damage)

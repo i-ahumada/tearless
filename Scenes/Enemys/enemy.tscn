@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://busgtelphtqpk"]
 
+[ext_resource type="Script" uid="uid://bcke25wwlkf54" path="res://Scripts/Enemys/enemy.gd" id="1_nntky"]
+
 [node name="Enemy" type="Node2D" unique_id=1456145655]
+script = ExtResource("1_nntky")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1923311491]
-
-[node name="EnemyIcon" type="TextureRect" parent="Sprite2D" unique_id=1087126519]
-offset_right = 40.0
-offset_bottom = 40.0

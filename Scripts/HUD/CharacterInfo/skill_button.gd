@@ -21,4 +21,3 @@ func enable_icon():
 func _on_button_down():
 	assert(skill != GameEnums.Skills.NONE)
 	button_skill.emit(skill)
-	print("Skill enviada: ", skill)

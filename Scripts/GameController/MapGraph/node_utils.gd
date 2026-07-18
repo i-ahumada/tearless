@@ -21,4 +21,5 @@ static func node_data_state_to_enum(node_state: String)->GameEnums.NodeState:
 static func enemy_to_enemy_enum(enemy: String)-> GameEnums.Enemies:
 	match enemy:
 		"SPIDER": return GameEnums.Enemies.SPIDER # Julián Álvarez
+		"ZOMBIE": return GameEnums.Enemies.ZOMBIE
 	return GameEnums.Enemies.SPIDER
