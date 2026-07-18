@@ -26,6 +26,7 @@ var selected_enemy: Enemy = null
 var turn_queue: Array
 var player_defending = false
 
+const TURN_DURATION = 1.5
 const PLAYER_ID = -1
 const enemy_scene = preload("res://Scenes/Enemies/enemy.tscn")
 
@@ -47,15 +48,16 @@ func _combat_flow():
 				enemy = enemy_scene.instantiate() as Enemy
 				add_child(enemy)
 
-				enemy = enemy_factory.create_enemy(enemy_name,enemy,enemy_counter) # 🙏
+				enemy = enemy_factory.create_enemy(enemy_name,enemy,enemy_counter)
 				enemy.enemy_selected.connect(_select_enemy)
 
+				$PanelContainer/PatternDisplay.add_pattern(enemy.get_pattern())
 				enemies.set(enemy.id,enemy)
 				enemy_counter += 1
 
 			selected_enemy = enemies[0]
 			selected_enemy.select()
-			await _show_dialogue(combat_node.start_dialogue)
+			# _show_dialogue(combat_node.start_dialogue)
 			_start_combat()
 		GameEnums.NodeState.ACTION: pass
 		GameEnums.NodeState.MOVEMENT: pass
@@ -73,6 +75,8 @@ func _start_combat():
 	turn_queue.push_back(PLAYER_ID)
 	for enemy_id in enemies:
 		turn_queue.push_back(enemy_id)
+	$PanelContainer/PatternDisplay.visible = true
+	$PanelContainer/PatternDisplay.display()
 	_run_combat_step()
 
 func _run_combat_step():
@@ -81,8 +85,9 @@ func _run_combat_step():
 	if (current_turn_id != PLAYER_ID):
 		assert(enemies[current_turn_id])
 
+		print("current_turn_id: ",current_turn_id)
 		var enemy = enemies[current_turn_id]
-		var enemy_action = enemy.get_action()
+		var enemy_action = enemy.get_action() # pop_from_attack_queue
 
 		if (enemy_action == GameEnums.EnemiesActions.ATTACK):
 			if (player_defending):
@@ -92,8 +97,10 @@ func _run_combat_step():
 
 		turn_queue.push_back(current_turn_id)
 
+		await get_tree().create_timer(TURN_DURATION).timeout
 		_eval_end_turn()
 	else:
+		turn_queue.push_back(PLAYER_ID)
 		change_turn.emit(GameEnums.CombatTurn.PLAYER)
 
 func _eval_end_turn():
@@ -106,7 +113,6 @@ func _eval_end_turn():
 
 func _lose():
 	print("loser")
-	# Cambia la escena a perdiste
 
 func _win():
 	combat_node.state = GameEnums.NodeState.MOVEMENT
@@ -114,6 +120,8 @@ func _win():
 
 func player_defend():
 	player_defending = true
+	await get_tree().create_timer(TURN_DURATION).timeout
+	_eval_end_turn()
 
 func player_attack(damage:int):
 	player_defending = false
@@ -127,8 +135,8 @@ func player_attack(damage:int):
 				turn_queue.pop_at(i)
 			selected_enemy.queue_free()
 
+		await get_tree().create_timer(TURN_DURATION).timeout
 		change_turn.emit(GameEnums.CombatTurn.ENEMY)
-		turn_queue.push_back(PLAYER_ID)
 		_eval_end_turn()
 
 	else:

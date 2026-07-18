@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dyoy7bc75sbkv"]
 
 [ext_resource type="Script" uid="uid://dcr3xrjrrs7bp" path="res://Scripts/RoomContainer/combat_room.gd" id="1_5yi6r"]
+[ext_resource type="PackedScene" uid="uid://e6iki3wqhmql" path="res://Scenes/Rooms/pattern_display.tscn" id="2_7l2qp"]
 
 [node name="CombatRoom" type="Node2D" unique_id=1594661822 node_paths=PackedStringArray("background")]
 script = ExtResource("1_5yi6r")
@@ -15,3 +16,6 @@ mouse_filter = 2
 [node name="Background" type="TextureRect" parent="PanelContainer" unique_id=1955253687]
 layout_mode = 2
 expand_mode = 3
+
+[node name="PatternDisplay" parent="PanelContainer" unique_id=1121862113 instance=ExtResource("2_7l2qp")]
+visible = false

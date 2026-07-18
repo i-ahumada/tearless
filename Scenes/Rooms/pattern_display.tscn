@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://e6iki3wqhmql"]
+
+[ext_resource type="Script" uid="uid://b6ikncknow8qx" path="res://Scripts/RoomContainer/pattern_display.gd" id="1_q0x7w"]
+[ext_resource type="Texture2D" uid="uid://dd5bqfce22p0" path="res://Sprites/Combat/attack_pattern_display_container.png" id="2_61d4g"]
+
+[node name="PatternDisplay" type="CanvasLayer" unique_id=1121862113]
+script = ExtResource("1_q0x7w")
+metadata/_custom_type_script = "uid://b6ikncknow8qx"
+
+[node name="Control" type="Control" parent="." unique_id=531408720]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 134.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control" unique_id=734650902]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 35.0
+offset_right = 940.0
+offset_bottom = 135.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer" unique_id=1707523688]
+layout_mode = 2
+texture = ExtResource("2_61d4g")
+expand_mode = 2
+
+[node name="PatternDisplayContainer" type="HBoxContainer" parent="Control/PanelContainer" unique_id=192898457]
+layout_mode = 2
+alignment = 1

@@ -24,6 +24,6 @@ func _on_pressed() -> void:
 		return
 	close_eye()
 	disabled = true
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(.5).timeout
 	disabled = false
 	open_eye()

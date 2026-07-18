@@ -8,8 +8,20 @@ enum AttackPatternsReference {
 	COMMON_3 = 3,
 }
 
-const attack_patterns: Dictionary[AttackPatternsReference,Array] = {
-	AttackPatternsReference.COMMON_1: [1,0],
-	AttackPatternsReference.COMMON_2: [1,0,0],
-	AttackPatternsReference.COMMON_3: [1,0,1,1],
+const attack_patterns: Dictionary[AttackPatternsReference,Variant] = {
+	AttackPatternsReference.COMMON_1: [
+		GameEnums.EnemiesActions.ATTACK,
+		GameEnums.EnemiesActions.NONE
+	],
+	AttackPatternsReference.COMMON_2: [
+		GameEnums.EnemiesActions.ATTACK,
+		GameEnums.EnemiesActions.NONE,
+		GameEnums.EnemiesActions.NONE
+	],
+	AttackPatternsReference.COMMON_3: [
+		GameEnums.EnemiesActions.ATTACK,
+		GameEnums.EnemiesActions.NONE,
+		GameEnums.EnemiesActions.ATTACK,
+		GameEnums.EnemiesActions.ATTACK
+	],
 }

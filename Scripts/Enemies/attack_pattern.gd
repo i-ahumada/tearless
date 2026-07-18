@@ -2,11 +2,12 @@ extends RefCounted
 
 class_name AttackPattern
 
-var pattern: Array = []
+var pattern: Array[GameEnums.EnemiesActions] = []
 var attack_queue: Array[GameEnums.EnemiesActions] = []
 
 func _init(attack_key: AttackPatternsDict.AttackPatternsReference):
-	pattern = AttackPatternsDict.attack_patterns[attack_key]
+	for action in AttackPatternsDict.attack_patterns[attack_key]:
+		pattern.push_back(action)
 	_fill_queue()
 
 func _fill_queue():

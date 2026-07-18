@@ -30,7 +30,6 @@ func set_attack_pattern(pattern: AttackPatternsDict.AttackPatternsReference):
 
 func update_life(value:int):
 	life_value += value
-	print("enemies's life: ", life_value)
 
 func initial_position(x_value:float,y_value:float):
 	enemy_area.position.x = x_value

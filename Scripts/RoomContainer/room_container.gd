@@ -18,7 +18,7 @@ func redraw_room(map_node):
 		child.queue_free()
 	var room = room_factory.instanciate_room(map_node)
 	add_child(room)
-	room = room_factory.setup_room(self, room, map_node)
+	room = room_factory.setup_room(self, room, map_node) # 🙏
 
 func _on_change_room(map_node, direction: GameEnums.Directions):
 	redraw_room(map_node)
