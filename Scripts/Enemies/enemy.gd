@@ -37,7 +37,7 @@ func setup(life_initial_value: int, icon_route:String, new_id, damage):
 	setup_selected()
 	blood_sprite.visible = false
 	initial_position(640,360)
-	_scale(3)
+	_scale(4)
 
 func set_attack_pattern(pattern: AttackPatternsDict.AttackPatternsReference):
 	attack_pattern = AttackPattern.new(pattern)
@@ -86,7 +86,7 @@ func _physics_process(delta: float) -> void:
 	if active_shaking_time > 0:
 		shake_time += delta * shake_time_speed
 		active_shaking_time -= delta
-		
+
 		if movement_2d:
 			position = Vector2(
 				noise.get_noise_2d(shake_time, 0) * shake_intensity,
@@ -96,19 +96,19 @@ func _physics_process(delta: float) -> void:
 				noise.get_noise_2d(shake_time, 0) * shake_intensity,
 				0)
 		shake_intensity = max(shake_intensity - shake_decay * delta, 0)
-		
+
 	else:
 		position = lerp(position, Vector2.ZERO, 10.5 * delta)
-	
+
 func enemy_shake(intensity:float,time:float):
 	randomize()
 	noise.seed = randi()
 	noise.frequency = 2.0
-	
+
 	shake_intensity = intensity
 	active_shaking_time = time
 	shake_time = 0.0
-	
+
 func show_damage():
 	movement_2d = true
 	blood_sprite.visible = true

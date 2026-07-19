@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://p4h75kwuub7c" path="res://Scenes/HUD/hud.tscn" id="1_nqxm2"]
 [ext_resource type="Script" uid="uid://bxluioq7i3rsx" path="res://Scripts/RoomContainer/room_container.gd" id="3_w5uht"]
 [ext_resource type="Script" uid="uid://mjctrm0q8j8h" path="res://Scripts/GameController/player.gd" id="4_g6ftq"]
+[ext_resource type="AudioStream" uid="uid://bsn3hr84x3gyx" path="res://Sounds/Music/common_bg_musi.mp3" id="5_jktuj"]
 
-[node name="GameController" type="Node" unique_id=16930123 node_paths=PackedStringArray("room_container")]
+[node name="GameController" type="Node" unique_id=16930123 node_paths=PackedStringArray("room_container", "background_music")]
 script = ExtResource("1_kx2cw")
 room_container = NodePath("RoomContainer")
+background_music = NodePath("BackgroundMusic")
 
 [node name="HUD" parent="." unique_id=457467768 instance=ExtResource("1_nqxm2")]
 
@@ -17,6 +19,10 @@ script = ExtResource("3_w5uht")
 [node name="Player" type="Node" parent="." unique_id=1540974958]
 script = ExtResource("4_g6ftq")
 life_value = 100
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=463905625]
+stream = ExtResource("5_jktuj")
+autoplay = true
 
 [connection signal="change_level" from="." to="HUD" method="_on_change_level"]
 [connection signal="change_room" from="." to="HUD" method="_on_change_room"]

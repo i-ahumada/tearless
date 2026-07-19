@@ -52,7 +52,6 @@ func _add_map_room_cell(node: MapNode, node_position: Vector2i):
 	_map_room_cell_set.set(node.id, map_room_cell)
 	add_child(map_room_cell)
 	map_room_cell.position = node_position
-	print(node_position, map_room_cell.position)
 
 	_add_node_if_not_added(node.node_directions[GameEnums.Directions.LEFT], node_position + ADD_LEFT)
 	_add_node_if_not_added(node.node_directions[GameEnums.Directions.RIGHT], node_position + ADD_RIGHT)

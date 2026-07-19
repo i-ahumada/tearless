@@ -14,7 +14,6 @@ func set_dialogue(dialogue):
 	$CharacterInfo.set_dialogue(dialogue)
 
 func combat_change_turn(turn: GameEnums.CombatTurn):
-	print(turn)
 	if (turn == GameEnums.CombatTurn.PLAYER):
 		$CharacterInfo.enable_skills(escape_allowed)
 	elif (turn == GameEnums.CombatTurn.ENEMY):

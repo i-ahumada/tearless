@@ -19,3 +19,5 @@ expand_mode = 3
 
 [node name="PatternDisplay" parent="PanelContainer" unique_id=1121862113 instance=ExtResource("2_7l2qp")]
 visible = false
+
+[node name="CombatEffectsPlayer" type="AudioStreamPlayer" parent="." unique_id=1247192471]

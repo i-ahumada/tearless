@@ -1,5 +1,18 @@
 {
 	"START": {
+		"id": 213,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": "room_asd",
+			"DOWN": null
+		},
+		"background": "dungeon_door.png"
+	},
+	"room_asd": {
 		"id": 0,
 		"type": "EMPTY",
 		"state": "MOVEMENT",
@@ -10,7 +23,7 @@
 			"UP": "room_3",
 			"DOWN": null
 		},
-		"background": "start_room.png"
+		"background": "three_doors.png"
 	},
 	"room_1": {
 		"id": 1,
@@ -19,11 +32,11 @@
 		"visited": false,
 		"directions": {
 			"LEFT": "room_2",
-			"RIGHT": "START",
+			"RIGHT": "room_asd",
 			"UP": null,
 			"DOWN": null
 		},
-		"background": "room_1.png"
+		"background": "left_right_door.png"
 	},
 	"room_2": {
 		"id": 2,
@@ -36,7 +49,7 @@
 			"UP": null,
 			"DOWN": null
 		},
-		"background": "room_2.png"
+		"background": "right_door.png"
 	},
 	"room_3": {
 		"id": 3,
@@ -44,7 +57,7 @@
 		"state": "COMBAT",
 		"visited": false,
 		"enemies": [
-			"SPIDER",
+			"GHOST",
 		],
 		"start_dialogue": ["Te vamos a tocar", "De manera desubicada"],
 		"end_dialogue": ["AHHHHHH"],
@@ -52,7 +65,7 @@
 			"LEFT": null,
 			"RIGHT": null,
 			"UP": null,
-			"DOWN": "START"
+			"DOWN": "room_asd"
 		},
 		"background": "no_doors.png"
 	},
@@ -62,9 +75,9 @@
 		"state": "ACTION",
 		"visited": false,
 		"image_path": "cualquier_cosa.png",
-		"lore_script": "Lorem ipsum",
+		"lore_script": "Lorem ipsum \n dos",
 		"directions": {
-			"LEFT": "START",
+			"LEFT": "room_asd",
 			"RIGHT": null,
 			"UP": "EXIT",
 			"DOWN": null
@@ -82,6 +95,6 @@
 			"UP": null,
 			"DOWN": "room_4"
 		},
-		"background": "exit.png"
+		"background": "front_door.png"
 	}
 }

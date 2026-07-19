@@ -23,4 +23,5 @@ static func enemy_to_enemy_enum(enemy: String)-> GameEnums.Enemies:
 	match enemy:
 		"SPIDER": return GameEnums.Enemies.SPIDER # Julián Álvarez
 		"ZOMBIE": return GameEnums.Enemies.ZOMBIE
+		"GHOST": return GameEnums.Enemies.GHOST # Tito Calderón
 	return GameEnums.Enemies.SPIDER

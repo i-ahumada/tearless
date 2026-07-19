@@ -4,6 +4,7 @@ class_name EnemyFactory
 
 @export var spider_route = "res://Sprites/Characters/Enemies/spider.png"
 @export var zombie_route = "res://Sprites/Characters/Enemies/zombie.png"
+@export var ghost_route = "res://Sprites/Characters/Enemies/prov_ghost.png"
 
 func create_enemy(type:GameEnums.Enemies, enemy:Enemy, id) -> Enemy:
 	match type:
@@ -16,6 +17,13 @@ func create_enemy(type:GameEnums.Enemies, enemy:Enemy, id) -> Enemy:
 			].pick_random())
 		GameEnums.Enemies.ZOMBIE:
 			enemy.setup(40,zombie_route,id,7)
+			enemy.set_attack_pattern([
+				AttackPatternsDict.AttackPatternsReference.COMMON_1,
+				AttackPatternsDict.AttackPatternsReference.COMMON_2,
+				AttackPatternsDict.AttackPatternsReference.COMMON_3
+			].pick_random())
+		GameEnums.Enemies.GHOST:
+			enemy.setup(40,ghost_route,id,7)
 			enemy.set_attack_pattern([
 				AttackPatternsDict.AttackPatternsReference.COMMON_1,
 				AttackPatternsDict.AttackPatternsReference.COMMON_2,

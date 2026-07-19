@@ -9,15 +9,12 @@ class_name CombatRoom
 # Malisimo pero este bloque de texto no se borra hasta que lo cambiemos
 # Por las dudas no te quiero cambiar nada
 
+@export var enemy_hit_sound = preload("res://Sounds/Effects/enemy_hit.mp3")
+@export var player_hit_sound = preload("res://Sounds/Effects/sword_hit.wav")
+@export var enemy_battle_cry = preload("res://Sounds/Effects/enemy_cry.mp3")
+
 signal change_turn(turn: GameEnums.CombatTurn)
 signal hit_player(damage: int)
-
-enum CombatState {
-	IN_PROGRESS,
-	WIN,
-	LOSE,
-	ESCAPE
-}
 
 var combat_node: CombatNode
 var enemy_factory: EnemyFactory = EnemyFactory.new()
@@ -43,6 +40,8 @@ func _combat_flow():
 		GameEnums.NodeState.COMBAT:
 			var enemy_counter:int = 0
 			var enemy:Enemy
+			$CombatEffectsPlayer.stream = enemy_battle_cry
+			$CombatEffectsPlayer.play()
 
 			for enemy_name in combat_node.enemies:
 				enemy = enemy_scene.instantiate() as Enemy
@@ -75,6 +74,7 @@ func _show_dialogue(dialogue: Array):
 func _start_combat():
 	# start turn_queue
 	turn_queue.push_back(PLAYER_ID)
+
 	for enemy_id in enemies:
 		turn_queue.push_back(enemy_id)
 	$PanelContainer/PatternDisplay.visible = true
@@ -88,16 +88,18 @@ func _run_combat_step():
 	if (current_turn_id != PLAYER_ID):
 		assert(enemies[current_turn_id])
 
-		print("current_turn_id: ",current_turn_id)
 		var enemy = enemies[current_turn_id]
 		var enemy_action = enemy.get_action() # pop_from_attack_queue
 
 		if (enemy_action == GameEnums.EnemiesActions.ATTACK):
 			enemy.show_attack()
+			$CombatEffectsPlayer.stream = enemy_hit_sound
+			$CombatEffectsPlayer.play()
+
 			if (player_defending):
-				_show_dialogue([" dodges "])
+				_show_dialogue(["* Dodges *"])
 			else:
-				_show_dialogue(["Damage taken -"+str(enemy.damage_value)])
+				_show_dialogue(["* Damage taken -"+str(enemy.damage_value)+" *"])
 				hit_player.emit(enemy.damage_value)
 		else:
 			_show_dialogue(["* Creature stares at you *"])
@@ -111,6 +113,7 @@ func _run_combat_step():
 		change_turn.emit(GameEnums.CombatTurn.PLAYER)
 
 func _eval_end_turn():
+	# Ni se usa esto
 	if (!turn_queue.has(PLAYER_ID)):
 		_lose()
 	elif (turn_queue.has(PLAYER_ID) and turn_queue.size() == 1):
@@ -119,7 +122,7 @@ func _eval_end_turn():
 		_run_combat_step()
 
 func _lose():
-	print("loser")
+	print("Argentina 2 - 1 England")
 
 func _win():
 	combat_node.state = GameEnums.NodeState.MOVEMENT
@@ -135,6 +138,8 @@ func player_attack(damage:int):
 	if (selected_enemy):
 		selected_enemy.update_life(damage)
 		selected_enemy.show_damage()
+		$CombatEffectsPlayer.stream = player_hit_sound
+		$CombatEffectsPlayer.play()
 		if (selected_enemy.life_value <= 0):
 			var i = 0
 			_show_dialogue(combat_node.end_dialogue)
