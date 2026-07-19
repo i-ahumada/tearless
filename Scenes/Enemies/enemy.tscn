@@ -59,9 +59,9 @@ metadata/_custom_type_script = "uid://bp7jxv74dbwon"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D" unique_id=2049283619]
 offset_left = -16.0
-offset_top = -54.0
+offset_top = -60.0
 offset_right = 16.0
-offset_bottom = -49.0
+offset_bottom = -55.0
 value = 100.0
 texture_under = ExtResource("3_4bcle")
 texture_progress = ExtResource("4_beuat")
