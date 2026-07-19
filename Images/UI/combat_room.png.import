@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqjyngolqos05"
-path="res://.godot/imported/room_2.png-746414bd63805174fa87d023427fbbc8.ctex"
+uid="uid://djkgc445co26j"
+path="res://.godot/imported/combat_room.png-15deb791e8cff99a56402a5f3136a562.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/room_2.png"
-dest_files=["res://.godot/imported/room_2.png-746414bd63805174fa87d023427fbbc8.ctex"]
+source_file="res://Images/UI/combat_room.png"
+dest_files=["res://.godot/imported/combat_room.png-15deb791e8cff99a56402a5f3136a562.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uelgakxlcqbj"
-path="res://.godot/imported/left_door.png-173b349d81d266b6355e2447d09dcea4.ctex"
+uid="uid://cfar7bmp87v1a"
+path="res://.godot/imported/wall_carving.png-1522cb1fe54b24c0c33ca01454454d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/left_door.png"
-dest_files=["res://.godot/imported/left_door.png-173b349d81d266b6355e2447d09dcea4.ctex"]
+source_file="res://Images/Events/wall_carving.png"
+dest_files=["res://.godot/imported/wall_carving.png-1522cb1fe54b24c0c33ca01454454d18.ctex"]
 
 [params]
 

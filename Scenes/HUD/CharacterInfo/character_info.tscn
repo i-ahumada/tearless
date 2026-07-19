@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dj1t2ntprik8u" path="res://Sprites/Skills/Escape.png" id="14_0huw1"]
 [ext_resource type="Script" uid="uid://bg1i5talxfhl3" path="res://Scripts/HUD/CharacterInfo/eye_skill_button.gd" id="15_0huw1"]
 [ext_resource type="Texture2D" uid="uid://dfr8wiyurfwwr" path="res://Sprites/Skills/eye_closed.png" id="15_1lr76"]
+[ext_resource type="FontFile" uid="uid://c48d8dx8vv8kf" path="res://Fonts/PressStart2P-Regular.ttf" id="15_7c82w"]
 [ext_resource type="Texture2D" uid="uid://dcxiew47nf3r0" path="res://Sprites/Skills/escape_bar.png" id="20_o37ew"]
 [ext_resource type="Texture2D" uid="uid://cy8q61frgmmjv" path="res://Sprites/Skills/escape_bar_progress.png" id="21_tu570"]
 [ext_resource type="Script" uid="uid://bovfm7g8tyk2x" path="res://Scripts/HUD/CharacterInfo/escape_progress_bar.gd" id="22_tu570"]
@@ -184,6 +185,7 @@ offset_left = 60.5
 offset_top = 26.0
 offset_right = 102.5
 offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("15_7c82w")
 text = "100%"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -250,6 +252,8 @@ theme_override_constants/margin_bottom = 10
 custom_maximum_size = Vector2(355, 124)
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.9254902, 1, 0.9843137, 1)
+theme_override_fonts/font = ExtResource("15_7c82w")
 text = "..."
 autowrap_mode = 3
 

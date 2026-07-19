@@ -3,15 +3,14 @@ extends Control
 class_name MapRoomCell
 
 @export var icon: Resource
-@export var background: Color
+@export var background: Color = Color("858f97")
 @export var id: int
 @export var current: bool = false
 var neighbours: Array[int]
 
-func setup(node_id, node_icon, node_background, node_directions):
+func setup(node_id, node_icon, node_directions):
 	current = false
 	icon = node_icon
-	background = node_background
 	id = node_id
 
 	for direction in node_directions:
@@ -20,19 +19,26 @@ func setup(node_id, node_icon, node_background, node_directions):
 			match direction:
 				GameEnums.Directions.LEFT:
 					$Left.visible = true
-					$Left.color = background
+					$Left.color = Color("576373")
 				GameEnums.Directions.RIGHT:
 					$Right.visible = true
-					$Right.color = background
+					$Right.color = Color("576373")
 				GameEnums.Directions.UP:
 					$Up.visible = true
-					$Up.color = background
+					$Up.color = Color("576373")
 				GameEnums.Directions.DOWN:
 					$Down.visible = true
-					$Down.color = background
+					$Down.color = Color("576373")
 
 	$Background.color = background
 	$Icon.texture = icon
+
+func color_directions(color: Color):
+	$Left.color = color
+	$Right.color = color
+	$Up.color = color
+	$Down.color = color
+
 
 func clear_icon():
 	icon = null
@@ -40,13 +46,16 @@ func clear_icon():
 
 func hint():
 	visible = true
-	modulate = Color(.3,.3,.3,1)
+	$Background.color = Color("323859")
+	color_directions(Color("323859"))
 
 func visit():
 	current = true
 	visible = true
-	modulate = Color(2.0, 2.0, 2.0, 1)
+	$Background.color = Color("ecfffb")
+	color_directions(Color("ecfffb"))
 
 func leave():
 	current = false
-	modulate = Color(0.75, 0.75, 0.75, 1)
+	$Background.color = Color("576373")
+	color_directions(Color("576373"))

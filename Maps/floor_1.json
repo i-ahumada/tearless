@@ -1,0 +1,261 @@
+{
+	"START": {
+		"id": 0,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "door.png",
+		"lore_script": "You know you are there as soon as the dirt turns into stone underneath your feet. You slide your boots around, it’s smooth, surely tile. When the wind stops blowing your hair back, you know you are standing in front of something big.\n\nYou are a Tearless. Before you were even born, you already were one, earning the title from the moment the Seer of your people predicted you to have a great amount of tears. Those pearlescent diamonds, finite for everyone in the world, do not come back after they are shed. People do not cry anymore, fearing the loss of those drops, they remain emotionless out of choice.\n\nYou remain emotionless out of duty.\n\nThe duty to keep your people safe. Safe from destruction. Safe from Consumption.\n\nThe time you have prepared sixteen years for has finally come.\n\nIt is time to gaze upon the world for the first time.\n\nYou turn your head up to the sky, deftly reaching into your bag to remove the vial you were granted not one day ago by the Bearer, popping its cork, you pour its contents over your face. For the first time in your life, you feel the clay over your eyes start to come loose. If it wasn’t because you were told so, you would never have known what sight is, what eyes look like. You would have never known that you also had that ability, sealed underneath a mask.\n\nIt hurts when you reach for it, pulling it away from your skin feels like ripping off a layer of it. The cold wind that the rest of your body is used to touches the pristine surface of your eyelids for the first time… And you open them.\n\n\n\n…\n\nThe door looks exactly as they had described it to you. It opens, letting you into the Sorrow…",
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": "entrance_inside",
+			"DOWN": null
+		},
+		"background": "dungeon_door.png"
+	},
+	"entrance_inside":{
+		"id": 1,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "discarded_clay.png",
+		"lore_script": "As soon as you step inside, your feet collide with something on the floor, pushing it. It feels lighter than stone, and you can hear it crack as it crashes into something else.\n\nYou remember to look down, and you do so as you kneel.\n\nRunning your fingers over what seems to be debris, the texture gives it away immediately. These are clay seals, the same ones you had over your eyes just before you came inside… there are many here… more than you can count. These surely belonged to previous Tearless.\n\nInspecting them closer, some of them are engraved with carvewriting. You run your finger through one, reading it…\n\n”It’s hard to see, it hurts to open them and feel the air blow in. Did you feel the same? I wonder. I’m scared. Saint Elemgea, please guide me.”\n\n…\n\nYou decide to keep moving.",
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": "hall1_3",
+			"DOWN": null
+		},
+		"background": "front_door.png"
+	},
+	"hall1_3": {
+		"id": 4,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": "hall1_t",
+			"DOWN": "entrance_inside"
+		},
+		"background": "hall_forward.png"
+	},
+	"hall1_t": {
+		"id": 5,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "hall1_4",
+			"RIGHT": "hall1_5",
+			"UP": null,
+			"DOWN": "hall1_3"
+		},
+		"background": "cross_section.png"
+	},
+	"hall1_4": {
+		"id": 6,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "event_4",
+			"RIGHT": "hall1_t",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "hall_forward.png"
+	},
+	"hall1_5": {
+		"id": 7,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "hall1_t",
+			"RIGHT": "event_3",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "hall_forward.png"
+	},
+	"event_3": {
+		"id": 10,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "tutorial.png",
+		"lore_script": "There is more carvewriting on the wall here. You glide your fingers over it, reading it…\n\n”We are not alone within these walls. They described it to us, creatures of the dungeons threaten the halls. The Quills seem enough to fend them off, for now.”\n\n”If you are reading this, heed my warning, observe the enemy’s intention, gain insight into what they will do… when they will attack and when they will defend themselves. If you are able to keep this information fresh in your mind, you will be victorious. But be quick, once the enemy starts its move, it’s too late to read what they will do, gain as much information as you can, as fast as you can.”\n\n”If you know an attack is coming, close your eyes. You’ve lived your entire life without them, it’s easier to dodge when you rely on the senses you know. Good luck.”\n\n…\n\nYou grasp the handle of your dagger tightly… You need to keep moving. You need to reach the Well.",
+		"directions": {
+			"LEFT": "hall1_5",
+			"RIGHT": null,
+			"UP": "hall2_1",
+			"DOWN": null
+		},
+		"background": "left_front_door.png"
+	},
+	"event_4": {
+		"id": 11,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "wall_carving.png",
+		"lore_script": "There is more carvewriting on the wall here. You glide your fingers over it, reading it…\n\n”It hurts. My eyes hurt, my body aches with every step, it feels heavy to move. The slightest bite from the smallest critter is so painful…”\n\n”Please, be wary, it is so easy to cry now that we can… if you get hurt, you are sure to shed as I did.”",
+		"directions": {
+			"LEFT": null,
+			"RIGHT": "hall1_4",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "right_door.png"
+	},
+	"hall2_1": {
+		"id": 12,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": "hall2_t",
+			"DOWN": "event_3"
+		},
+		"background": "hall_forward.png"
+	},
+	"hall2_t": {
+		"id": 14,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "hall2_4",
+			"RIGHT": "hall2_5",
+			"UP": null,
+			"DOWN": "hall2_1"
+		},
+		"background": "hall_forward.png"
+	},
+	"hall2_4": {
+		"id": 16,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "combat_1",
+			"RIGHT": "hall2_t",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "hall_forward.png"
+	},
+	"hall2_5": {
+		"id": 17,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "hall2_t",
+			"RIGHT": "combat_2",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "hall_forward.png"
+	},
+	"combat_1": {
+		"id": 19,
+		"type": "COMBAT",
+		"state": "COMBAT",
+		"visited": false,
+		"enemies": [
+			"RAT"
+		],
+		"start_dialogue": ["Your path is blocked! This room appears inhabited by something.", "The furry creature shrieks and bares its chipped teeth. It fits the description of a rat..."],
+		"end_dialogue": ["The rat falls to your attack. It doesn't seem to be moving anymore..."],
+		"directions": {
+			"LEFT": null,
+			"RIGHT": "hall2_4",
+			"UP": "event_2",
+			"DOWN": null
+		},
+		"background": "right_front_door.png"
+	},
+	"combat_2": {
+		"id": 20,
+		"type": "COMBAT",
+		"state": "COMBAT",
+		"visited": false,
+		"enemies": [
+			"SPIDER"
+		],
+		"start_dialogue": ["Suddenly, an eight-legged creature emerges to confront you!", "You notice this room is a dead end..."],
+		"end_dialogue": ["The creature shrivels up into an unmoving husk.", "You are not in danger anymore..."],
+		"directions": {
+			"LEFT": "hall2_5",
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "no_doors.png"
+	},
+	"event_2":{
+		"id": 23,
+		"type": "LORE",
+		"state": "ACTION",
+		"visited": false,
+		"image_path": "wall_carving.png",
+		"lore_script": "You come across some carvewriting in the wall to your right, it’s inlaid into one of the stone bricks. Running your fingers over it, the marks are deeper than usual, they are jagged. Not just any Quill carved this, there was something more behind it, perhaps a hammer? A rock, repeatedly struck over the pommel of the Quill to make sure the brick remembers every letter? Maybe it wasn’t a tool, maybe it was just the hate.\n\n”WHY IS THE BURDEN MINE. WHY IS THE BURDEN MINE. WHY IS THE BURDEN MINE.”\n\n”THEY CALLED YOU BEARER, WHEN I AM THE ONE WHO BEARS.”\n\n”THEY CALLED YOU GENIUS, WHEN I AM THE ONE WHO THINKS.”\n\n”THEY CALLED YOU SAVIOUR, WHEN I AM THE ONE WHO DIES.”\n\n”SHEDDING UPON YOUR LINEAGE. SHED, ORPHIN, SHED. SHED AS I HAVE. SHED AS I WILL.”\n\n…\n\nYou decide to keep moving…",
+		"directions": {
+			"LEFT": "hall4_1",
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": "combat_1"
+		},
+		"background": "right_door.png"
+	},
+	"hall4_1": {
+		"id": 24,
+		"type": "EMPTY",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": "combat_3",
+			"RIGHT": "event_2",
+			"UP": null,
+			"DOWN": null
+		},
+		"background": "hall_forward.png"
+	},
+	"combat_3": {
+		"id": 27,
+		"type": "COMBAT",
+		"state": "COMBAT",
+		"visited": false,
+		"enemies": [
+			"GHOST"
+		],
+		"start_dialogue": ["Out of the ether, a humanoid figure emerges to confront you...", "You feel nothingness weigh heavily on your chest... the scene saddens you."],
+		"end_dialogue": ["The creature vanishes into nothing.", "The weight on your chest does not disappear..."],
+		"directions": {
+			"LEFT": null,
+			"RIGHT": "hall4_1",
+			"UP": "EXIT",
+			"DOWN": null
+		},
+		"background": "stairs.png"
+	},
+	"EXIT": {
+		"id": 28,
+		"type": "END",
+		"state": "MOVEMENT",
+		"visited": false,
+		"directions": {
+			"LEFT": null,
+			"RIGHT": null,
+			"UP": null,
+			"DOWN": "combat_3"
+		},
+		"background": "exit.png"
+	}
+}

@@ -18,12 +18,10 @@ func open_eye():
 func close_eye():
 	icon = closed_eye
 
-
-func _on_pressed() -> void:
+func _on_button_down():
+	super()
 	if (icon == closed_eye):
 		return
 	close_eye()
-	disabled = true
-	await get_tree().create_timer(.5).timeout
-	disabled = false
+	await get_tree().create_timer(2).timeout
 	open_eye()

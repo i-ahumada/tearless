@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc27c4goq7ijv"
-path="res://.godot/imported/room_3.png-7299416f3a94f305c8ff38086f413244.ctex"
+uid="uid://i3osifuuowki"
+path="res://.godot/imported/rat.png-6a75fb58c91e42f2dd79e26dd0f51622.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/room_3.png"
-dest_files=["res://.godot/imported/room_3.png-7299416f3a94f305c8ff38086f413244.ctex"]
+source_file="res://Sprites/Characters/Enemies/rat.png"
+dest_files=["res://.godot/imported/rat.png-6a75fb58c91e42f2dd79e26dd0f51622.ctex"]
 
 [params]
 

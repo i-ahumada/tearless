@@ -2,7 +2,7 @@ extends Node
 
 class_name GameController
 
-@export var starting_map_route: String = "res://Maps/map_test.json"
+@export var starting_map_route: String = "res://Maps/floor_1.json"
 @export var room_container: RoomContainer
 @export var background_music: AudioStreamPlayer
 
@@ -31,6 +31,8 @@ func _ready():
 
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (map_graph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
+		level += 1
+		map_graph = MapGraph.new("res://Maps/floor_"+str(level)+".json")
 		change_level.emit(map_graph)
 	elif (map_graph.peek_next(direction) == GameEnums.NodeType.END):
 		change_game_state.emit(Game.GameState.END)

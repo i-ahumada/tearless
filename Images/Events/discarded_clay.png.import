@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yutmygnqrqvh"
-path="res://.godot/imported/start_room.png-55a7af4bbc62b870eddc55c48d0b45f5.ctex"
+uid="uid://bk3hl5h3xnbwt"
+path="res://.godot/imported/discarded_clay.png-9c76d1293143140941b946ebed1d302b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/start_room.png"
-dest_files=["res://.godot/imported/start_room.png-55a7af4bbc62b870eddc55c48d0b45f5.ctex"]
+source_file="res://Images/Events/discarded_clay.png"
+dest_files=["res://.godot/imported/discarded_clay.png-9c76d1293143140941b946ebed1d302b.ctex"]
 
 [params]
 

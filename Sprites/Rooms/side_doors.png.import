@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uelgakxlcqbj"
-path="res://.godot/imported/left_door.png-173b349d81d266b6355e2447d09dcea4.ctex"
+uid="uid://bcw6hysayo1n8"
+path="res://.godot/imported/side_doors.png-cb0ff7531c577ac1643fba5a0b27f090.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/left_door.png"
-dest_files=["res://.godot/imported/left_door.png-173b349d81d266b6355e2447d09dcea4.ctex"]
+source_file="res://Sprites/Rooms/side_doors.png"
+dest_files=["res://.godot/imported/side_doors.png-cb0ff7531c577ac1643fba5a0b27f090.ctex"]
 
 [params]
 

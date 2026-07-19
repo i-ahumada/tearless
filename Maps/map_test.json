@@ -1,9 +1,11 @@
 {
 	"START": {
-		"id": 213,
-		"type": "EMPTY",
-		"state": "MOVEMENT",
+		"id": 123,
+		"type": "LORE",
+		"state": "ACTION",
 		"visited": false,
+		"image_path": "door.png",
+		"lore_script": "You know you are there as soon as the dirt turns into stone underneath your feet. You slide your boots around, it’s smooth, surely tile. When the wind stops blowing your hair back, you know you are standing in front of something big.\n\nYou are a Tearless. Before you were even born, you already were one, earning the title from the moment the Seer of your people predicted you to have a great amount of tears. Those pearlescent diamonds, finite for everyone in the world, do not come back after they are shed. People do not cry anymore, fearing the loss of those drops, they remain emotionless out of choice.\n\nYou remain emotionless out of duty.\n\nThe duty to keep your people safe. Safe from destruction. Safe from Consumption\n\nThe time you have prepared sixteen years for has finally come.\n\nIt is time to gaze upon the world for the first time.\n\nYou turn your head up to the sky, deftly reaching into your bag to remove the vial you were granted not one day ago by the Bearer, popping its cork, you pour its contents over your face. For the first time in your life, you feel the clay over your eyes start to come loose. If it wasn’t because you were told so, you would never have known what sight is, what eyes look like. You would have never known that you also had that ability, sealed underneath a mask.\n\nIt hurts when you reach for it, pulling it away from your skin feels like ripping off a layer of it. The cold wind that the rest of your body is used to touches the pristine skin of your eyelids for the first time… And you open them.\n\n\n\n…\n\nThe door looks exactly as they had described it to you. It opens, letting you into the Sorrow…",
 		"directions": {
 			"LEFT": null,
 			"RIGHT": null,
@@ -36,7 +38,7 @@
 			"UP": null,
 			"DOWN": null
 		},
-		"background": "left_right_door.png"
+		"background": "side_doors.png"
 	},
 	"room_2": {
 		"id": 2,
@@ -57,7 +59,7 @@
 		"state": "COMBAT",
 		"visited": false,
 		"enemies": [
-			"GHOST",
+			"RAT",
 		],
 		"start_dialogue": ["Te vamos a tocar", "De manera desubicada"],
 		"end_dialogue": ["AHHHHHH"],
@@ -74,7 +76,7 @@
 		"type": "LORE",
 		"state": "ACTION",
 		"visited": false,
-		"image_path": "cualquier_cosa.png",
+		"image_path": "tutorial.png",
 		"lore_script": "Lorem ipsum \n dos",
 		"directions": {
 			"LEFT": "room_asd",

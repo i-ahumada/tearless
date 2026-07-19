@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1swwhq3rtt37" path="res://Scripts/RoomContainer/event_dialog.gd" id="1_2eb48"]
 [ext_resource type="FontFile" uid="uid://c48d8dx8vv8kf" path="res://Fonts/PressStart2P-Regular.ttf" id="2_ri161"]
+[ext_resource type="Texture2D" uid="uid://cig3ya1cog82h" path="res://Images/UI/boton_menu.png" id="3_3bccd"]
 [ext_resource type="Texture2D" uid="uid://jbpyw21w5e5j" path="res://Images/UI/dialog_frame.png" id="3_20joi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20joi"]
@@ -13,6 +14,9 @@ corner_detail = 20
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_o37ew"]
 content_margin_left = 10.0
 color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ebmjs"]
+texture = ExtResource("3_3bccd")
 
 [node name="EventDialog" type="CanvasLayer" unique_id=532340323 node_paths=PackedStringArray("event_text", "event_illustration")]
 script = ExtResource("1_2eb48")
@@ -82,6 +86,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.9254902, 1, 0.9843137, 1)
+theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("2_ri161")
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
@@ -89,7 +94,10 @@ text = "Joder!"
 fit_content = true
 
 [node name="Close" type="Button" parent="Control/PanelContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1639742581]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ri161")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ebmjs")
 text = "Close"
 
 [node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/MarginContainer/PanelContainer" unique_id=1152752952]
