@@ -32,7 +32,8 @@ func create_enemy(type:GameEnums.Enemies, enemy:Enemy, id) -> Enemy:
 		GameEnums.Enemies.RAT:
 			enemy.setup(20,rat_route,id,7)
 			enemy.set_attack_pattern([
-				AttackPatternsDict.AttackPatternsReference.MEDIUM_1,
-				AttackPatternsDict.AttackPatternsReference.MEDIUM_2,
+				AttackPatternsDict.AttackPatternsReference.COMMON_1,
+				AttackPatternsDict.AttackPatternsReference.COMMON_2,
+				AttackPatternsDict.AttackPatternsReference.COMMON_3
 			].pick_random())
 	return enemy
