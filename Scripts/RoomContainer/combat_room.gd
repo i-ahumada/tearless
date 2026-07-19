@@ -12,13 +12,6 @@ class_name CombatRoom
 signal change_turn(turn: GameEnums.CombatTurn)
 signal hit_player(damage: int)
 
-enum CombatState {
-	IN_PROGRESS,
-	WIN,
-	LOSE,
-	ESCAPE
-}
-
 var combat_node: CombatNode
 var enemy_factory: EnemyFactory = EnemyFactory.new()
 var enemies:Dictionary[int,Enemy]
@@ -85,7 +78,6 @@ func _run_combat_step():
 	if (current_turn_id != PLAYER_ID):
 		assert(enemies[current_turn_id])
 
-		print("current_turn_id: ",current_turn_id)
 		var enemy = enemies[current_turn_id]
 		var enemy_action = enemy.get_action() # pop_from_attack_queue
 
@@ -104,6 +96,7 @@ func _run_combat_step():
 		change_turn.emit(GameEnums.CombatTurn.PLAYER)
 
 func _eval_end_turn():
+	# Ni se usa esto
 	if (!turn_queue.has(PLAYER_ID)):
 		_lose()
 	elif (turn_queue.has(PLAYER_ID) and turn_queue.size() == 1):
@@ -112,7 +105,7 @@ func _eval_end_turn():
 		_run_combat_step()
 
 func _lose():
-	print("loser")
+	print("Argentina 2 - 1 England")
 
 func _win():
 	combat_node.state = GameEnums.NodeState.MOVEMENT

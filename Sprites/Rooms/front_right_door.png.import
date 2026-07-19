@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3cqilu5fc1tg"
-path="res://.godot/imported/no_doors.png-d5c06ebc2d3a5c69e986c4166b5831de.ctex"
+uid="uid://1nfbv2bl20l0"
+path="res://.godot/imported/front_right_door.png-7a9d370df8bfe358ef36ffafbf1521fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Rooms/no_doors.png"
-dest_files=["res://.godot/imported/no_doors.png-d5c06ebc2d3a5c69e986c4166b5831de.ctex"]
+source_file="res://Sprites/Rooms/front_right_door.png"
+dest_files=["res://.godot/imported/front_right_door.png-7a9d370df8bfe358ef36ffafbf1521fb.ctex"]
 
 [params]
 

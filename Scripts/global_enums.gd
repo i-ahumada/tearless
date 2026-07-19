@@ -36,7 +36,8 @@ enum CombatTurn {
 
 enum Enemies {
 	SPIDER,
-	ZOMBIE
+	ZOMBIE,
+	GHOST
 }
 
 enum Skills {

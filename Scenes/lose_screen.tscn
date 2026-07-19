@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bce3d1ys51k2m"]
+
+[ext_resource type="Script" uid="uid://m7tj34owwcl5" path="res://Scripts/lose_screen.gd" id="1_488pv"]
+[ext_resource type="Texture2D" uid="uid://boauhuth51tuw" path="res://Images/Screens/lose_screen.png" id="2_nk27f"]
+[ext_resource type="FontFile" uid="uid://c48d8dx8vv8kf" path="res://Fonts/PressStart2P-Regular.ttf" id="3_nk27f"]
+[ext_resource type="Texture2D" uid="uid://cig3ya1cog82h" path="res://Images/UI/boton_menu.png" id="4_38ql5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsrd8"]
+texture = ExtResource("4_38ql5")
+
+[node name="LoseScreen" type="CanvasLayer" unique_id=2097493841]
+script = ExtResource("1_488pv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=552150196]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nk27f")
+
+[node name="BackToMenu" type="Button" parent="." unique_id=1143636279]
+offset_left = 74.0
+offset_top = 488.0
+offset_right = 454.0
+offset_bottom = 528.0
+theme_override_fonts/font = ExtResource("3_nk27f")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jsrd8")
+text = "Back to menu"
+
+[node name="Restart" type="Button" parent="." unique_id=1989294351]
+offset_left = 74.0
+offset_top = 543.0
+offset_right = 454.0
+offset_bottom = 583.0
+theme_override_fonts/font = ExtResource("3_nk27f")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jsrd8")
+text = "Restart"
+
+[connection signal="button_down" from="BackToMenu" to="." method="_on_back_to_menu_button_down"]
+[connection signal="button_down" from="Restart" to="." method="_on_restart_button_down"]

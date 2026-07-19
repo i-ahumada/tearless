@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://byp3rc0gqa66o"]
 
-[ext_resource type="Script" uid="uid://bdrghf81py6d2" path="res://Scenes/HUD/MiniMap/mini_map_container.gd" id="1_s3ec2"]
+[ext_resource type="Script" uid="uid://bdrghf81py6d2" path="res://Scripts/HUD/MiniMap/mini_map_container.gd" id="1_s3ec2"]
 [ext_resource type="Script" uid="uid://23orjbbrvuf2" path="res://Scripts/HUD/MiniMap/mini_map.gd" id="2_tr72b"]
 
 [node name="MiniMapContainer" type="MarginContainer" unique_id=573718819]

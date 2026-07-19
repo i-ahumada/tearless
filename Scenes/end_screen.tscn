@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dk4765nfx0wn"]
+
+[ext_resource type="Script" uid="uid://djl0b8tboxsla" path="res://Scripts/end_screen.gd" id="1_1gwaw"]
+[ext_resource type="Texture2D" uid="uid://b2fm2yvkwlyqk" path="res://Images/Screens/end_screen.png" id="1_f2mtv"]
+
+[node name="EndScreen" type="CanvasLayer" unique_id=1792385117]
+script = ExtResource("1_1gwaw")
+
+[node name="EndBackground" type="TextureRect" parent="." unique_id=1934585894]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f2mtv")

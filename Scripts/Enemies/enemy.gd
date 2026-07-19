@@ -23,7 +23,7 @@ func setup(life_initial_value: int, icon_route:String, new_id, damage):
 	damage_value = damage
 	enemy_sprite.texture = load(icon_route) as Texture2D
 	initial_position(640,360)
-	_scale(5)
+	_scale(4)
 
 func set_attack_pattern(pattern: AttackPatternsDict.AttackPatternsReference):
 	attack_pattern = AttackPattern.new(pattern)

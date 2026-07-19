@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://oki2swaffc1p"]
+
+[ext_resource type="Script" uid="uid://bblsqmb8gd2it" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://dklk8a4kuo1ou" path="res://Images/Screens/menu.png" id="2_xhh6f"]
+[ext_resource type="FontFile" uid="uid://c48d8dx8vv8kf" path="res://Fonts/PressStart2P-Regular.ttf" id="3_158mb"]
+[ext_resource type="Texture2D" uid="uid://cig3ya1cog82h" path="res://Images/UI/boton_menu.png" id="4_wwsa2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cayip"]
+texture = ExtResource("4_wwsa2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wwsa2"]
+texture = ExtResource("4_wwsa2")
+
+[node name="Menu" type="CanvasLayer" unique_id=217184897]
+script = ExtResource("1_1rerr")
+
+[node name="MenuBackground" type="TextureRect" parent="." unique_id=1330740875]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xhh6f")
+
+[node name="Start" type="Button" parent="." unique_id=510454200]
+offset_left = 450.0
+offset_top = 434.0
+offset_right = 830.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("3_158mb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cayip")
+text = "Start"
+
+[node name="Exit" type="Button" parent="." unique_id=946324261]
+offset_left = 450.0
+offset_top = 494.0
+offset_right = 830.0
+offset_bottom = 534.0
+theme_override_fonts/font = ExtResource("3_158mb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_wwsa2")
+text = "Exit"
+
+[connection signal="button_down" from="Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="Exit" to="." method="_on_exit_button_down"]

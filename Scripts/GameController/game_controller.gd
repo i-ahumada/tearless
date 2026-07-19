@@ -1,13 +1,18 @@
 extends Node
 
+class_name GameController
+
 @export var starting_map_route: String = "res://Maps/map_test.json"
 @export var room_container: RoomContainer
+@export var background_music: AudioStreamPlayer
+
 var player: Player
 
+signal change_game_state(new_state: Game.GameState)
 signal change_room(map_node: MapNode, direction: GameEnums.Directions)
 signal change_level(map_graph: MapGraph)
 signal hit_enemy(damage: int)
-signal hit_player(damage: int)
+# signal hit_player(damage: int)
 signal defend_player()
 
 ## Level nbr
@@ -26,6 +31,8 @@ func _ready():
 func _on_direction_button_clicked(direction: GameEnums.Directions):
 	if (map_graph.peek_next(direction) == GameEnums.NodeType.NEXT_LEVEL):
 		change_level.emit(map_graph)
+	elif (map_graph.peek_next(direction) == GameEnums.NodeType.END):
+		change_game_state.emit(Game.GameState.END)
 	else:
 		map_graph.move_direction(direction) # sacar cuando se implemente _next_room()
 		change_room.emit(map_graph.current_node, direction)
@@ -37,13 +44,12 @@ func _on_update_room_state(room_node: MapNode):
 
 func _on_hit_player(damage: int):
 	player.change_life(-damage)
+	if player.life_value <= 0:
+		change_game_state.emit(Game.GameState.LOSE)
 	$HUD.update_player_life(player.life_value)
 
-# Se recibe desde el hud cuando se usan los botones de navegación
-# _load_room(room_data: RoomData):
-	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
-	# actualiza el mapa
-	#actualizar el hud (desactivar movimiento que no se puede)
+func _on_lose():
+	change_game_state.emit(Game.GameState.LOSE)
 
 func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
 	assert(map_graph.current_node.type == GameEnums.NodeType.COMBAT)
