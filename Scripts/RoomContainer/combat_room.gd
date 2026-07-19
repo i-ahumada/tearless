@@ -130,8 +130,11 @@ func _win():
 
 func player_defend():
 	player_defending = true
+	
 	await get_tree().create_timer(TURN_DURATION).timeout
+	change_turn.emit(GameEnums.CombatTurn.ENEMY)
 	_eval_end_turn()
+	
 
 func player_attack(damage:int):
 	player_defending = false
