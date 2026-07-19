@@ -135,7 +135,7 @@
 			"UP": null,
 			"DOWN": "hall2_1"
 		},
-		"background": "hall_forward.png"
+		"background": "cross_section.png"
 	},
 	"hall2_4": {
 		"id": 16,

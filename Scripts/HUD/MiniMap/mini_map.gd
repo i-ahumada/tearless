@@ -16,7 +16,6 @@ func switch_room(node_id: int, direction: GameEnums.Directions):
 	_map_room_cell_set.get(node_id).visit()
 	current_room_cell = _map_room_cell_set.get(node_id)
 	_hint_neighbours(current_room_cell)
-	print(current_room_cell.id)
 	var movement: Vector2 = Vector2i(0,0)
 
 	match direction:

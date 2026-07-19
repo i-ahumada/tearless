@@ -88,7 +88,7 @@
 	},
 	"EXIT": {
 		"id": 99,
-		"type": "NEXT_LEVEL",
+		"type": "END",
 		"state": "MOVEMENT",
 		"visited": false,
 		"directions": {

@@ -52,7 +52,7 @@ func _on_hit_player(damage: int):
 	$HUD.update_player_life(player.life_value)
 
 func _on_lose():
-	print("Argentina 2 - 1 Inglaterra")
+	change_game_state.emit(Game.GameState.LOSE)
 
 # Se recibe desde el hud cuando se usan los botones de navegación
 func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
