@@ -212,7 +212,7 @@
 			"UP": null,
 			"DOWN": "combat_1"
 		},
-		"background": "right_door.png"
+		"background": "left_door.png"
 	},
 	"hall4_1": {
 		"id": 24,
