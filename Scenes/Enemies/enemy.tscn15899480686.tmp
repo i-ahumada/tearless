@@ -70,25 +70,25 @@ frame_progress = 1.0
 
 [node name="LeftUpCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=10254296]
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="RightUpCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1369890453]
 position = Vector2(0, -1.9073486e-06)
 rotation = 1.5707964
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="LeftDownCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=108819336]
 position = Vector2(0, 3.8146973e-06)
 rotation = -1.5707964
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="RightDownCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1512579790]
 position = Vector2(2.2737368e-13, 1.1920929e-07)
 rotation = -3.1415927
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [connection signal="area_clicked" from="Area2D" to="." method="_on_enemy_clicked"]

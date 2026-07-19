@@ -21,5 +21,4 @@ func create_enemy(type:GameEnums.Enemies, enemy:Enemy, id) -> Enemy:
 				AttackPatternsDict.AttackPatternsReference.COMMON_2,
 				AttackPatternsDict.AttackPatternsReference.COMMON_3
 			].pick_random())
-			enemy.initial_position(340,360)
 	return enemy

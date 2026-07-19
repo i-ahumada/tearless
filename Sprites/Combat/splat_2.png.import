@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cynrdffrq1itl"
-path="res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"
+uid="uid://c2nuu5yxwua30"
+path="res://.godot/imported/splat_2.png-85c325353d2ca42bdbef8bcd6958d62b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Enemies/spider.png"
-dest_files=["res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"]
+source_file="res://Sprites/Combat/splat_2.png"
+dest_files=["res://.godot/imported/splat_2.png-85c325353d2ca42bdbef8bcd6958d62b.ctex"]
 
 [params]
 

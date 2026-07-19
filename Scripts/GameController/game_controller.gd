@@ -40,10 +40,6 @@ func _on_hit_player(damage: int):
 	$HUD.update_player_life(player.life_value)
 
 # Se recibe desde el hud cuando se usan los botones de navegación
-# _load_room(room_data: RoomData):
-	# avisa el cambio al RoomContainer. RoomContainer.change_room(room_data)
-	# actualiza el mapa
-	#actualizar el hud (desactivar movimiento que no se puede)
 
 func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
 	assert(map_graph.current_node.type == GameEnums.NodeType.COMBAT)
