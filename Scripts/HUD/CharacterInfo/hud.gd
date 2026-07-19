@@ -48,6 +48,7 @@ func disable_escape():
 
 func _on_character_info_skill_button_clicked(skill: GameEnums.Skills) -> void:
 	skill_button_cliked.emit(skill)
+	
 
 
 func _on_escape_not_allowed() -> void:

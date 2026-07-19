@@ -52,4 +52,5 @@ func _on_button_change_room(direction: GameEnums.Directions):
 
 func _on_button_skill(skill: GameEnums.Skills) -> void:
 	skill_button_clicked.emit(skill)
-	escape_bar.value -= 1
+	if (skill == GameEnums.Skills.ESCAPE):
+		escape_bar.value -= 1
