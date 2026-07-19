@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bcke25wwlkf54" path="res://Scripts/Enemies/enemy.gd" id="1_nntky"]
 [ext_resource type="Script" uid="uid://bp7jxv74dbwon" path="res://Scripts/Enemies/clickable.gd" id="2_jcvw6"]
+[ext_resource type="Texture2D" uid="uid://bg2grwtd17osf" path="res://Sprites/Characters/Enemies/life_bar_base.png" id="3_4bcle"]
 [ext_resource type="Texture2D" uid="uid://bk2ofgdjj2kyx" path="res://Sprites/Combat/SplatAnimation/splat_1_4.png" id="3_u0emo"]
+[ext_resource type="Texture2D" uid="uid://ckbydjf21wnh3" path="res://Sprites/Characters/Enemies/life_bar_complete.png" id="4_beuat"]
 [ext_resource type="Texture2D" uid="uid://btnsaecs1h41a" path="res://Sprites/Combat/SplatAnimation/splat_1_3.png" id="4_tq087"]
 [ext_resource type="Texture2D" uid="uid://db2drl6vmeexq" path="res://Sprites/Combat/SplatAnimation/splat_1_2.png" id="5_4bcle"]
 [ext_resource type="Texture2D" uid="uid://ci5whcsld6s43" path="res://Sprites/Combat/SplatAnimation/splat_1.png" id="6_beuat"]
@@ -54,6 +56,15 @@ metadata/_custom_type_script = "uid://bcke25wwlkf54"
 [node name="Area2D" type="Area2D" parent="." unique_id=1259541996]
 script = ExtResource("2_jcvw6")
 metadata/_custom_type_script = "uid://bp7jxv74dbwon"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D" unique_id=2049283619]
+offset_left = -16.0
+offset_top = -54.0
+offset_right = 16.0
+offset_bottom = -49.0
+value = 100.0
+texture_under = ExtResource("3_4bcle")
+texture_progress = ExtResource("4_beuat")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1826642960]
 shape = SubResource("RectangleShape2D_7vvol")

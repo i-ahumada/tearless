@@ -20,8 +20,11 @@
 [ext_resource type="Texture2D" uid="uid://dj1t2ntprik8u" path="res://Sprites/Skills/Escape.png" id="14_0huw1"]
 [ext_resource type="Script" uid="uid://bg1i5talxfhl3" path="res://Scripts/HUD/CharacterInfo/eye_skill_button.gd" id="15_0huw1"]
 [ext_resource type="Texture2D" uid="uid://dfr8wiyurfwwr" path="res://Sprites/Skills/eye_closed.png" id="15_1lr76"]
+[ext_resource type="Texture2D" uid="uid://dcxiew47nf3r0" path="res://Sprites/Skills/escape_bar.png" id="20_o37ew"]
+[ext_resource type="Texture2D" uid="uid://cy8q61frgmmjv" path="res://Sprites/Skills/escape_bar_progress.png" id="21_tu570"]
+[ext_resource type="Script" uid="uid://bovfm7g8tyk2x" path="res://Scripts/HUD/CharacterInfo/escape_progress_bar.gd" id="22_tu570"]
 
-[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tear_component", "tear_percentage", "dialogue_label", "skill_buttons")]
+[node name="CharacterInfo" type="MarginContainer" unique_id=1581931985 node_paths=PackedStringArray("tear_component", "tear_percentage", "dialogue_label", "skill_buttons", "escape_bar")]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -39,6 +42,7 @@ tear_component = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxC
 tear_percentage = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/TearsLife/TearBar/TearText")
 dialogue_label = NodePath("MarginContainer/HBoxContainer/TextContainer/MarginContainer/Dialogue")
 skill_buttons = [NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Knife"), NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Eye"), NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/Escape")]
+escape_bar = NodePath("MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer/EscapeProgressBar")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=485152673]
 layout_mode = 2
@@ -211,6 +215,13 @@ opened_eye = ExtResource("13_1lr76")
 closed_eye = ExtResource("15_1lr76")
 skill = 1
 metadata/_custom_type_script = "uid://k23t4j82pf38"
+
+[node name="EscapeProgressBar" type="TextureProgressBar" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer" unique_id=2024135673]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("20_o37ew")
+texture_progress = ExtResource("21_tu570")
+script = ExtResource("22_tu570")
 
 [node name="Escape" type="Button" parent="MarginContainer/HBoxContainer/SkillsAndMovement/HBoxContainer/SkillsContainer/VBoxContainer/SkillBottom/HBoxContainer" unique_id=1758978031]
 layout_mode = 2

@@ -11,6 +11,7 @@ class_name Enemy
 @onready var enemy_area = $Area2D
 @onready var blood_sprite:AnimatedSprite2D= $Area2D/CollisionShape2D/BloodSprite
 @onready var enemy_collision: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var life_bar:TextureProgressBar = $Area2D/TextureProgressBar
 #--------shaking variables----------
 var shake_intensity:float = 0.0
 var active_shaking_time:float = 0.0
@@ -27,12 +28,12 @@ var dialogue: Array
 var id
 
 func setup(life_initial_value: int, icon_route:String, new_id, damage):
-	#selected_sprite.visible = false
 	life_value = life_initial_value
 	id = new_id
 	damage_value = damage
 	enemy_sprite.texture = load(icon_route) as Texture2D
 	enemy_collision.shape.set("size",enemy_sprite.texture.get_size())
+	life_bar.max_value = life_initial_value
 	setup_selected()
 	blood_sprite.visible = false
 	initial_position(640,360)
@@ -43,6 +44,7 @@ func set_attack_pattern(pattern: AttackPatternsDict.AttackPatternsReference):
 
 func update_life(value:int):
 	life_value += value
+	life_bar.value += value
 
 func initial_position(x_value:float,y_value:float):
 	enemy_area.position.x = x_value
@@ -79,7 +81,6 @@ func select():
 
 func _on_enemy_clicked():
 	enemy_selected.emit(id)
-	#selected_sprite.visible = true
 
 func _physics_process(delta: float) -> void:
 	if active_shaking_time > 0:

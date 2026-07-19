@@ -99,6 +99,8 @@ func _run_combat_step():
 			else:
 				_show_dialogue(["Damage taken -"+str(enemy.damage_value)])
 				hit_player.emit(enemy.damage_value)
+		else:
+			_show_dialogue(["* Creature stares at you *"])
 
 		turn_queue.push_back(current_turn_id)
 
@@ -143,8 +145,9 @@ func player_attack(damage:int):
 				turn_queue.pop_at(i)
 			selected_enemy.queue_free()
 
-		await get_tree().create_timer(TURN_DURATION).timeout
 		change_turn.emit(GameEnums.CombatTurn.ENEMY)
+		await get_tree().create_timer(TURN_DURATION).timeout
+		#change_turn.emit(GameEnums.CombatTurn.ENEMY)
 		_eval_end_turn()
 
 	else:
