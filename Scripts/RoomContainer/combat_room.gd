@@ -50,7 +50,9 @@ func _combat_flow():
 
 			selected_enemy = enemies[0]
 			selected_enemy.select()
-			# _show_dialogue(combat_node.start_dialogue)
+			var dialogue_size = combat_node.start_dialogue.size()
+			_show_dialogue(combat_node.start_dialogue)
+			await get_tree().create_timer(dialogue_size * 2).timeout
 			_start_combat()
 		GameEnums.NodeState.ACTION: pass
 		GameEnums.NodeState.MOVEMENT: pass
@@ -75,6 +77,7 @@ func _start_combat():
 func _run_combat_step():
 	var current_turn_id = turn_queue.pop_front()
 
+	await get_tree().create_timer(.5).timeout
 	if (current_turn_id != PLAYER_ID):
 		assert(enemies[current_turn_id])
 
@@ -82,10 +85,14 @@ func _run_combat_step():
 		var enemy_action = enemy.get_action() # pop_from_attack_queue
 
 		if (enemy_action == GameEnums.EnemiesActions.ATTACK):
+			enemy.show_attack()
 			if (player_defending):
 				_show_dialogue([" dodges "])
 			else:
+				_show_dialogue(["Damage taken -"+str(enemy.damage_value)])
 				hit_player.emit(enemy.damage_value)
+		else:
+			_show_dialogue(["* Creature stares at you *"])
 
 		turn_queue.push_back(current_turn_id)
 
@@ -120,16 +127,20 @@ func player_attack(damage:int):
 	player_defending = false
 	if (selected_enemy):
 		selected_enemy.update_life(damage)
+		selected_enemy.show_damage()
 		if (selected_enemy.life_value <= 0):
 			var i = 0
+			_show_dialogue(combat_node.end_dialogue)
+			await get_tree().create_timer(1.0).timeout
 			while (i < turn_queue.size() and turn_queue[i] != selected_enemy.id):
 				i += 1
 			if (turn_queue[i] == selected_enemy.id):
 				turn_queue.pop_at(i)
 			selected_enemy.queue_free()
 
-		await get_tree().create_timer(TURN_DURATION).timeout
 		change_turn.emit(GameEnums.CombatTurn.ENEMY)
+		await get_tree().create_timer(TURN_DURATION).timeout
+		#change_turn.emit(GameEnums.CombatTurn.ENEMY)
 		_eval_end_turn()
 
 	else:

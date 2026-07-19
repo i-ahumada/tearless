@@ -14,6 +14,7 @@ signal change_level(map_graph: MapGraph)
 signal hit_enemy(damage: int)
 # signal hit_player(damage: int)
 signal defend_player()
+signal escape_player()
 
 ## Level nbr
 var level: int = 1
@@ -49,8 +50,9 @@ func _on_hit_player(damage: int):
 	$HUD.update_player_life(player.life_value)
 
 func _on_lose():
-	change_game_state.emit(Game.GameState.LOSE)
+	print("Argentina 2 - 1 Inglaterra")
 
+# Se recibe desde el hud cuando se usan los botones de navegación
 func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
 	assert(map_graph.current_node.type == GameEnums.NodeType.COMBAT)
 
@@ -60,16 +62,23 @@ func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
 		GameEnums.Skills.DEFEND:
 			defend_player.emit()
 		GameEnums.Skills.ESCAPE:
+			escape_player.emit()
 			match map_graph.last_direction_moved:
-				GameEnums.Directions.LEFT: map_graph.move_direction(GameEnums.Directions.RIGHT)
-				GameEnums.Directions.RIGHT: map_graph.move_direction(GameEnums.Directions.LEFT)
-				GameEnums.Directions.UP: map_graph.move_direction(GameEnums.Directions.DOWN)
-				GameEnums.Directions.DOWN:  map_graph.move_direction(GameEnums.Directions.UP)
+				GameEnums.Directions.LEFT: _on_direction_button_clicked(GameEnums.Directions.RIGHT)
+				GameEnums.Directions.RIGHT: _on_direction_button_clicked(GameEnums.Directions.LEFT)
+				GameEnums.Directions.UP: _on_direction_button_clicked(GameEnums.Directions.DOWN)
+				GameEnums.Directions.DOWN:  _on_direction_button_clicked(GameEnums.Directions.UP)
 				GameEnums.Directions.NONE:
 					$HUD.set_dialogue(["I- I can't escape..."])
+					
 
 func _on_show_dialogue(dialogue):
 	$HUD.set_dialogue(dialogue)
 
 func _change_turn(turn):
 	$HUD.combat_change_turn(turn)
+
+
+func _on_player_no_escape() -> void:
+	$HUD.set_dialogue(["* You don't have more escape chances *"])
+	$HUD.disable_escape()

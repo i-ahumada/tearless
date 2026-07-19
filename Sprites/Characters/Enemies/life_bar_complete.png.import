@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cynrdffrq1itl"
-path="res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"
+uid="uid://ckbydjf21wnh3"
+path="res://.godot/imported/life_bar_complete.png-129a32e64910ec3c35aab574f63fa277.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Enemies/spider.png"
-dest_files=["res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"]
+source_file="res://Sprites/Characters/Enemies/life_bar_complete.png"
+dest_files=["res://.godot/imported/life_bar_complete.png-129a32e64910ec3c35aab574f63fa277.ctex"]
 
 [params]
 

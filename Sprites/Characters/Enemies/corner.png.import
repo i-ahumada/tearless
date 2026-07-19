@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cynrdffrq1itl"
-path="res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"
+uid="uid://xukpvjxywi2x"
+path="res://.godot/imported/corner.png-70705f08964cda72af7554ebd40e0e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters/Enemies/spider.png"
-dest_files=["res://.godot/imported/spider.png-c4235e6e15bf0a2af44ab21d217e6403.ctex"]
+source_file="res://Sprites/Characters/Enemies/corner.png"
+dest_files=["res://.godot/imported/corner.png-70705f08964cda72af7554ebd40e0e88.ctex"]
 
 [params]
 

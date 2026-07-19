@@ -28,6 +28,7 @@ autoplay = true
 [connection signal="change_room" from="." to="HUD" method="_on_change_room"]
 [connection signal="change_room" from="." to="RoomContainer" method="_on_change_room"]
 [connection signal="defend_player" from="." to="RoomContainer" method="_on_player_defend"]
+[connection signal="escape_player" from="." to="Player" method="_on_escape_player"]
 [connection signal="hit_enemy" from="." to="RoomContainer" method="_on_hit_enemy"]
 [connection signal="direction_button_clicked" from="HUD" to="." method="_on_direction_button_clicked"]
 [connection signal="skill_button_cliked" from="HUD" to="." method="_on_skill_button_cliked"]
@@ -35,3 +36,5 @@ autoplay = true
 [connection signal="hit_player" from="RoomContainer" to="." method="_on_hit_player"]
 [connection signal="show_dialogue" from="RoomContainer" to="." method="_on_show_dialogue"]
 [connection signal="update_room_state" from="RoomContainer" to="." method="_on_update_room_state"]
+[connection signal="escape_not_allowed" from="Player" to="HUD" method="_on_escape_not_allowed"]
+[connection signal="no_escape" from="Player" to="." method="_on_player_no_escape"]

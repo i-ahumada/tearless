@@ -10,6 +10,7 @@ signal skill_button_clicked(skill: GameEnums.Skills)
 @export var direction_buttons_dict: Dictionary[GameEnums.Directions,DirectionButton]
 @export var dialogue_timer_time: float = 2.
 @export var skill_buttons: Array[SkillButton]
+@export var escape_bar:TextureProgressBar 
 
 func _ready():
 	update_life(100.0)
@@ -36,10 +37,14 @@ func disable_skills():
 	for skill_button in skill_buttons:
 		skill_button.disabled = true
 
-func enable_skills():
+func enable_skills(escape_allowed):
 	for skill_button in skill_buttons:
-		skill_button.disabled = false
+		skill_button.disabled = (!escape_allowed and skill_button.skill == GameEnums.Skills.ESCAPE)
 
+func disable_escape_button():
+	for skill_button in skill_buttons:
+		if (skill_button.skill == GameEnums.Skills.ESCAPE):
+			skill_button.disabled = true
 
 func _on_button_change_room(direction: GameEnums.Directions):
 	direction_button_clicked.emit(direction)
@@ -47,3 +52,4 @@ func _on_button_change_room(direction: GameEnums.Directions):
 
 func _on_button_skill(skill: GameEnums.Skills) -> void:
 	skill_button_clicked.emit(skill)
+	escape_bar.value -= 1

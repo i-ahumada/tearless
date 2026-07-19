@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcke25wwlkf54" path="res://Scripts/Enemies/enemy.gd" id="1_nntky"]
 [ext_resource type="Script" uid="uid://bp7jxv74dbwon" path="res://Scripts/Enemies/clickable.gd" id="2_jcvw6"]
-[ext_resource type="Texture2D" uid="uid://bg2grwtd17osf" path="res://Sprites/Characters/Enemies/life_bar_base.png" id="3_4bcle"]
 [ext_resource type="Texture2D" uid="uid://bk2ofgdjj2kyx" path="res://Sprites/Combat/SplatAnimation/splat_1_4.png" id="3_u0emo"]
-[ext_resource type="Texture2D" uid="uid://ckbydjf21wnh3" path="res://Sprites/Characters/Enemies/life_bar_complete.png" id="4_beuat"]
 [ext_resource type="Texture2D" uid="uid://btnsaecs1h41a" path="res://Sprites/Combat/SplatAnimation/splat_1_3.png" id="4_tq087"]
 [ext_resource type="Texture2D" uid="uid://db2drl6vmeexq" path="res://Sprites/Combat/SplatAnimation/splat_1_2.png" id="5_4bcle"]
 [ext_resource type="Texture2D" uid="uid://ci5whcsld6s43" path="res://Sprites/Combat/SplatAnimation/splat_1.png" id="6_beuat"]
@@ -57,15 +55,6 @@ metadata/_custom_type_script = "uid://bcke25wwlkf54"
 script = ExtResource("2_jcvw6")
 metadata/_custom_type_script = "uid://bp7jxv74dbwon"
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Area2D" unique_id=2049283619]
-offset_left = -16.0
-offset_top = -54.0
-offset_right = 16.0
-offset_bottom = -49.0
-value = 100.0
-texture_under = ExtResource("3_4bcle")
-texture_progress = ExtResource("4_beuat")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1826642960]
 shape = SubResource("RectangleShape2D_7vvol")
 debug_color = Color(0, 0.627451, 0.7019608, 0.41960785)
@@ -81,25 +70,25 @@ frame_progress = 1.0
 
 [node name="LeftUpCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=10254296]
 position = Vector2(-1.9073486e-06, -1.9073486e-06)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="RightUpCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1369890453]
 position = Vector2(0, -1.9073486e-06)
 rotation = 1.5707964
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="LeftDownCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=108819336]
 position = Vector2(0, 3.8146973e-06)
 rotation = -1.5707964
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [node name="RightDownCorner" type="Sprite2D" parent="Area2D/CollisionShape2D" unique_id=1512579790]
 position = Vector2(2.2737368e-13, 1.1920929e-07)
 rotation = -3.1415927
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_u0emo")
 
 [connection signal="area_clicked" from="Area2D" to="." method="_on_enemy_clicked"]

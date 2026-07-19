@@ -3,6 +3,8 @@ extends CanvasLayer
 signal direction_button_clicked(direction: GameEnums.Directions)
 signal skill_button_cliked(skill: GameEnums.Skills)
 
+var escape_allowed:bool = true
+
 func start(map_graph: MapGraph):
 	$CharacterInfo.set_dialogue(["..."])
 	_enable_valid_inputs(map_graph.current_node)
@@ -13,7 +15,7 @@ func set_dialogue(dialogue):
 
 func combat_change_turn(turn: GameEnums.CombatTurn):
 	if (turn == GameEnums.CombatTurn.PLAYER):
-		$CharacterInfo.enable_skills()
+		$CharacterInfo.enable_skills(escape_allowed)
 	elif (turn == GameEnums.CombatTurn.ENEMY):
 		$CharacterInfo.disable_skills()
 
@@ -41,6 +43,12 @@ func _on_change_room(map_node: MapNode, direction: GameEnums.Directions):
 func update_room_state(room_node: MapNode):
 	_enable_valid_inputs(room_node)
 
+func disable_escape():
+	$CharacterInfo.disable_escape_button()
 
 func _on_character_info_skill_button_clicked(skill: GameEnums.Skills) -> void:
 	skill_button_cliked.emit(skill)
+
+
+func _on_escape_not_allowed() -> void:
+	escape_allowed = false
