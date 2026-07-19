@@ -75,7 +75,7 @@
 		"state": "ACTION",
 		"visited": false,
 		"image_path": "cualquier_cosa.png",
-		"lore_script": "Lorem ipsum",
+		"lore_script": "Lorem ipsum \n dos",
 		"directions": {
 			"LEFT": "room_asd",
 			"RIGHT": null,

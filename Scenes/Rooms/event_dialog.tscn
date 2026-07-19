@@ -97,4 +97,6 @@ layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_20joi")
 
+[node name="PopupSound" type="AudioStreamPlayer" parent="." unique_id=1628872959]
+
 [connection signal="button_down" from="Control/PanelContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/VBoxContainer/Close" to="." method="_on_close_button_down"]

@@ -70,7 +70,7 @@ func _on_skill_button_cliked(skill: GameEnums.Skills) -> void:
 				GameEnums.Directions.DOWN:  _on_direction_button_clicked(GameEnums.Directions.UP)
 				GameEnums.Directions.NONE:
 					$HUD.set_dialogue(["I- I can't escape..."])
-					
+
 
 func _on_show_dialogue(dialogue):
 	$HUD.set_dialogue(dialogue)

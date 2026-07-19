@@ -10,7 +10,7 @@ signal skill_button_clicked(skill: GameEnums.Skills)
 @export var direction_buttons_dict: Dictionary[GameEnums.Directions,DirectionButton]
 @export var dialogue_timer_time: float = 2.
 @export var skill_buttons: Array[SkillButton]
-@export var escape_bar:TextureProgressBar 
+@export var escape_bar:TextureProgressBar
 
 func _ready():
 	update_life(100.0)
